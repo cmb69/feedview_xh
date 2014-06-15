@@ -38,6 +38,11 @@ require_once $pth['folder']['plugin_classes'] . 'DataSource.php';
 require_once $pth['folder']['plugin_classes'] . 'Presentation.php';
 
 /**
+ * The plugin version.
+ */
+define('FEEDVIEW_VERSION', '@FEEDVIEW_VERSION@');
+
+/**
  * Renders a feed.
  *
  * @param string $filename A feed filename.
@@ -55,5 +60,6 @@ function feedview($filename)
  * The plugin controller.
  */
 $_Feedview_controller = new Feedview_Controller();
+$_Feedview_controller->dispatch();
 
 ?>
