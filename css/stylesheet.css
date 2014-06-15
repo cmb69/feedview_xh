@@ -1,0 +1,9 @@
+/*
+ * Front-end.
+ */
+
+.feedview_items {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}

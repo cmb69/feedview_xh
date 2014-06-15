@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>3-magi.net</title>
+  <link>http://3-magi.net/</link>
+  <description></description>
+  <language>en</language>
+  <pubDate>Sat, 14 Jun 2014 14:14:29 +0200</pubDate>
+  <generator>CMSimple_XH 1.5.9 – Yanp_XH 1pl4</generator>
+  <atom:link href="http://3-magi.net/plugins/yanp/data/feed-en.xml" rel="self" type="application/rss+xml"/>
+  <image>
+    <url>http://3-magi.net/images/3-magi.png</url>
+    <title>3-magi.net</title>
+    <link>http://3-magi.net/</link>
+  </image>
+  <item>
+    <title>Chess_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Chess_XH</link>
+    <description>Version 1.0beta1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Chess_XH 1402667775</guid>
+    <pubDate>Fri, 13 Jun 2014 15:56:15 +0200</pubDate>
+  </item>
+  <item>
+    <title>Advancedform_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Advancedform_XH</link>
+    <description>Version 1.0 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Advancedform_XH 1401037860</guid>
+    <pubDate>Sun, 25 May 2014 19:11:00 +0200</pubDate>
+  </item>
+  <item>
+    <title>Pagemanager_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Pagemanager_XH</link>
+    <description>Version 2.0.3 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Pagemanager_XH 1400705638</guid>
+    <pubDate>Wed, 21 May 2014 22:53:58 +0200</pubDate>
+  </item>
+  <item>
+    <title>Utf8_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Utf8_XH</link>
+    <description>Version 0.5.4 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Utf8_XH 1400699859</guid>
+    <pubDate>Wed, 21 May 2014 21:17:39 +0200</pubDate>
+  </item>
+  <item>
+    <title>Monorder_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Monorder_XH</link>
+    <description>Version 1.0rc1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Monorder_XH 1397579875</guid>
+    <pubDate>Tue, 15 Apr 2014 18:37:55 +0200</pubDate>
+  </item>
+  <item>
+    <title>Portable_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Portable_XH</link>
+    <description>Version 1rc3 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Portable_XH 1396626209</guid>
+    <pubDate>Fri, 04 Apr 2014 17:43:29 +0200</pubDate>
+  </item>
+  <item>
+    <title>Pdeditor_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Pdeditor_XH</link>
+    <description>Version 1rc1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Pdeditor_XH 1395144458</guid>
+    <pubDate>Tue, 18 Mar 2014 13:07:38 +0100</pubDate>
+  </item>
+  <item>
+    <title>Audio_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Audio_XH</link>
+    <description>Version 1beta3 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Audio_XH 1393348995</guid>
+    <pubDate>Tue, 25 Feb 2014 18:23:15 +0100</pubDate>
+  </item>
+  <item>
+    <title>Translator_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Translator_XH</link>
+    <description>Version 1beta7 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Translator_XH 1389820501</guid>
+    <pubDate>Wed, 15 Jan 2014 22:15:01 +0100</pubDate>
+  </item>
+  <item>
+    <title>Minicounter_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Minicounter_XH</link>
+    <description>Version 1.0.1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Minicounter_XH 1389032581</guid>
+    <pubDate>Mon, 06 Jan 2014 19:23:01 +0100</pubDate>
+  </item>
+  <item>
+    <title>Keymaster_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Keymaster_XH</link>
+    <description>Version 1rc1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Keymaster_XH 1388433572</guid>
+    <pubDate>Mon, 30 Dec 2013 20:59:32 +0100</pubDate>
+  </item>
+  <item>
+    <title>Video_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Video_XH</link>
+    <description>Version 1rc1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Video_XH 1387982165</guid>
+    <pubDate>Wed, 25 Dec 2013 15:36:05 +0100</pubDate>
+  </item>
+  <item>
+    <title>Register_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Register_XH</link>
+    <description>Version 1.4pl4 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Register_XH 1386539492</guid>
+    <pubDate>Sun, 08 Dec 2013 22:51:32 +0100</pubDate>
+  </item>
+  <item>
+    <title>Coco_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Coco_XH</link>
+    <description>Version 1rc3 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Coco_XH 1386363640</guid>
+    <pubDate>Fri, 06 Dec 2013 22:00:40 +0100</pubDate>
+  </item>
+  <item>
+    <title>encode4web</title>
+    <link>http://3-magi.net/?CMSimple_XH/encode4web</link>
+    <description>Version 1rc2 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/encode4web 1386196846</guid>
+    <pubDate>Wed, 04 Dec 2013 23:40:46 +0100</pubDate>
+  </item>
+  <item>
+    <title>Adventcalendar_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Adventcalendar_XH</link>
+    <description>Version 1beta5 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Adventcalendar_XH 1385646937</guid>
+    <pubDate>Thu, 28 Nov 2013 14:55:37 +0100</pubDate>
+  </item>
+  <item>
+    <title>Sitemapper_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Sitemapper_XH</link>
+    <description>Version 2rc1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Sitemapper_XH 1379253493</guid>
+    <pubDate>Sun, 15 Sep 2013 15:58:13 +0200</pubDate>
+  </item>
+  <item>
+    <title>Handheld_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Handheld_XH</link>
+    <description>Version 1rc1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Handheld_XH 1379180185</guid>
+    <pubDate>Sat, 14 Sep 2013 19:36:25 +0200</pubDate>
+  </item>
+  <item>
+    <title>Roundabout_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Roundabout_XH</link>
+    <description>Version 1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Roundabout_XH 1376419640</guid>
+    <pubDate>Tue, 13 Aug 2013 20:47:20 +0200</pubDate>
+  </item>
+  <item>
+    <title>Moved_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Moved_XH</link>
+    <description>Version 1beta2 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Moved_XH 1375622244</guid>
+    <pubDate>Sun, 04 Aug 2013 15:17:24 +0200</pubDate>
+  </item>
+  <item>
+    <title>Socialshareprivacy_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Socialshareprivacy_XH</link>
+    <description>Version 1rc2 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Socialshareprivacy_XH 1374015143</guid>
+    <pubDate>Wed, 17 Jul 2013 00:52:23 +0200</pubDate>
+  </item>
+  <item>
+    <title>Versioninfo</title>
+    <link>http://3-magi.net/?Hello/Versioninfo</link>
+    <description>version.nfo files released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?Hello/Versioninfo 1369420752</guid>
+    <pubDate>Fri, 24 May 2013 20:39:12 +0200</pubDate>
+  </item>
+  <item>
+    <title>Webcamviewer_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Webcamviewer_XH</link>
+    <description>Version 1beta2 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Webcamviewer_XH 1367417077</guid>
+    <pubDate>Wed, 01 May 2013 16:04:37 +0200</pubDate>
+  </item>
+  <item>
+    <title>Syntaxhighlighter_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Syntaxhighlighter_XH</link>
+    <description>Version 1alpha1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Syntaxhighlighter_XH 1366762838</guid>
+    <pubDate>Wed, 24 Apr 2013 02:20:38 +0200</pubDate>
+  </item>
+  <item>
+    <title>Yanp_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Yanp_XH</link>
+    <description>Version 1pl4 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Yanp_XH 1366398569</guid>
+    <pubDate>Fri, 19 Apr 2013 21:09:29 +0200</pubDate>
+  </item>
+  <item>
+    <title>Tetris_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Tetris_XH</link>
+    <description>Version 1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Tetris_XH 1366372534</guid>
+    <pubDate>Fri, 19 Apr 2013 13:55:34 +0200</pubDate>
+  </item>
+  <item>
+    <title>Boilerplate_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Boilerplate_XH</link>
+    <description>Version 1rc2 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Boilerplate_XH 1363811918</guid>
+    <pubDate>Wed, 20 Mar 2013 21:38:38 +0100</pubDate>
+  </item>
+  <item>
+    <title>Slideshow_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Slideshow_XH</link>
+    <description>Version 1beta2 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Slideshow_XH 1362480412</guid>
+    <pubDate>Tue, 05 Mar 2013 11:46:52 +0100</pubDate>
+  </item>
+  <item>
+    <title>Extedit_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Extedit_XH</link>
+    <description>Version 1alpha1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Extedit_XH 1362146032</guid>
+    <pubDate>Fri, 01 Mar 2013 14:53:52 +0100</pubDate>
+  </item>
+  <item>
+    <title>Codeeditor_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Codeeditor_XH</link>
+    <description>Version 1rc1 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Codeeditor_XH 1360610711</guid>
+    <pubDate>Mon, 11 Feb 2013 20:25:11 +0100</pubDate>
+  </item>
+  <item>
+    <title>Chat_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Chat_XH</link>
+    <description>Version 1beta2 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Chat_XH 1358459348</guid>
+    <pubDate>Thu, 17 Jan 2013 22:49:08 +0100</pubDate>
+  </item>
+  <item>
+    <title>Schedule_XH</title>
+    <link>http://3-magi.net/?CMSimple_XH/Schedule_XH</link>
+    <description>Version 1beta3 released.</description>
+    <guid isPermaLink="false">http://3-magi.net/?CMSimple_XH/Schedule_XH 1357821276</guid>
+    <pubDate>Thu, 10 Jan 2013 13:34:36 +0100</pubDate>
+  </item>
+</channel>
+</rss>
