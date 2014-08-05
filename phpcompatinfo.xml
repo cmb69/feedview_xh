@@ -11,6 +11,7 @@
 
     <excludes>
         <exclude id="feedview">
+            <directory name="simplepie"/>
             <directory name="test"/>
             <directory name="vendor"/>
         </exclude>

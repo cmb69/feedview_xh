@@ -23,16 +23,6 @@ if (!defined('CMSIMPLE_XH_VERSION')) {
 }
 
 /**
- * The domain layer.
- */
-require_once $pth['folder']['plugin_classes'] . 'Domain.php';
-
-/**
- * The data source layer.
- */
-require_once $pth['folder']['plugin_classes'] . 'DataSource.php';
-
-/**
  * The presentation layer.
  */
 require_once $pth['folder']['plugin_classes'] . 'Presentation.php';

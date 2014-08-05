@@ -1,0 +1,19 @@
+<div class="feedview_header">
+    <h4>
+        <a href="<?php echo $feed->get_permalink();?>" target="_blank">
+            <?php echo $feed->get_title();?>
+        </a>
+    </h4>
+    <p><?php echo $feed->get_description();?></p>
+</div>
+<?php foreach ($feed->get_items() as $item):?>
+<div class="feedview_item">
+    <h5>
+        <a href="<?php echo $item->get_permalink();?>" target="_blank">
+            <?php echo $item->get_title();?>
+        </a>
+    </h5>
+    <p><?php echo $item->get_description();?></p>
+    <p><small>Posted on <?php echo $item->get_date('j F Y | g:i a'); ?></small></p>
+</div>
+<?php endforeach;?>

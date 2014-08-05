@@ -70,34 +70,22 @@ class Feedview_Controller
      * @param string $filename A feed filename.
      *
      * @return string (X)HTML.
+     *
+     * @global array The paths of system files and folders.
      */
     public function renderFeed($filename)
     {
-        $reader = new Feedview_Reader($filename);
-        $feed = $reader->read();
-        $result = '<h4><a href="' . $feed->getLink() . '">'
-            . $feed->getTitle() . '</a></h4>'
-            . '<ul class="feedview_items">';
-        foreach ($feed->getItems() as $item) {
-            $result .= $this->_renderFeedItem($item);
-        }
-        $result .= '</ul>';
-        return $result;
-    }
+        global $pth;
 
-    /**
-     * Renders a feed item.
-     *
-     * @param Feedview_Item $item A feed item.
-     *
-     * @return string (X)HTML.
-     */
-    private function _renderFeedItem(Feedview_Item $item)
-    {
-        return '<li>'
-            . '<a href="' . $item->getLink() . '">' . $item->getTitle() . '</a>'
-            . '<div>' . $item->getDescription() . '</div>'
-            . '</li>';
+        include $pth['folder']['plugins']
+            . 'feedview/simplepie/simplepie_1.3.1.compiled.php';
+        $feed = new SimplePie();
+        $feed->enable_cache(false);
+        $feed->set_feed_url($filename);
+        $feed->init();
+        ob_start();
+        include $pth['folder']['plugins'] . 'feedview/views/simple.htm';
+        return ob_get_clean();
     }
 
     /**
