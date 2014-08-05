@@ -14,6 +14,6 @@
         </a>
     </h5>
     <p><?php echo $item->get_description();?></p>
-    <p><small>Posted on <?php echo $item->get_date('j F Y | g:i a'); ?></small></p>
+    <p><small><?php echo sprintf($ptx['message_posted'], $item->get_date($ptx['format_date']));?></small></p>
 </div>
 <?php endforeach;?>

@@ -72,11 +72,13 @@ class Feedview_Controller
      * @return string (X)HTML.
      *
      * @global array The paths of system files and folders.
+     * @global array The localization of the plugins.
      */
     public function renderFeed($filename)
     {
-        global $pth;
+        global $pth, $plugin_tx;
 
+        $ptx = $plugin_tx['feedview'];
         include $pth['folder']['plugins']
             . 'feedview/simplepie/simplepie_1.3.1.compiled.php';
         $feed = new SimplePie();
