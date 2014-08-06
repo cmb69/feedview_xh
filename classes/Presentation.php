@@ -80,7 +80,7 @@ class Feedview_Controller
         global $pth, $plugin_cf, $plugin_tx;
 
         $ptx = $plugin_tx['feedview'];
-        include $pth['folder']['plugins']
+        include_once $pth['folder']['plugins']
             . 'feedview/simplepie/simplepie_1.3.1.compiled.php';
         $feed = new SimplePie();
         if ($plugin_cf['feedview']['cache_enabled']) {
