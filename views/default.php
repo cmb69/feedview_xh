@@ -1,3 +1,5 @@
+<?php $this->preventAccess()?>
+<!-- Feedview_XH: default feed view -->
 <div class="feedview_header">
     <h4>
         <a href="<?php echo $feed->get_permalink();?>" target="_blank">
