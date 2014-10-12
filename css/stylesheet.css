@@ -1,4 +1,18 @@
 /*
+ * Default view.
+ */
+
+.feedview_header {}
+.feedview_feed_title {}
+.feedview_feed_description {}
+.feedview_item {}
+.feedview_item_title {}
+.feedview_item_description {}
+.feedview_item_posted {
+    font-size: 85%;
+}
+
+/*
  * Back-end.
  */
 
