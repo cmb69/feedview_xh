@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- $Id$ -->
 <phpcompatinfo reference="ALL"
                report="summary"
                reportFileAppend="false"
@@ -11,7 +10,7 @@
 
     <excludes>
         <exclude id="feedview">
-            <directory name="simplepie"/>
+            <directsory name="simplepie"/>
             <directory name="test"/>
             <directory name="vendor"/>
         </exclude>
