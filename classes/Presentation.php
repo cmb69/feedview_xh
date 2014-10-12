@@ -93,7 +93,7 @@ class Feedview_Controller
         $feed->set_feed_url($filename);
         $feed->init();
         ob_start();
-        include $pth['folder']['plugins'] . 'feedview/views/simple.htm';
+        include $pth['folder']['plugins'] . 'feedview/views/default.htm';
         return ob_get_clean();
     }
 
