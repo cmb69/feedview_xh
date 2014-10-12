@@ -22,7 +22,10 @@ Zweifelsfall fragen Sie um Erlaubnis.</p>
 <li><a href="#requirements">Voraussetzungen</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#settings">Einstellungen</a></li>
-<li><a href="#usage">Verwendung</a></li>
+<li><a href="#usage">Verwendung</a>
+<ul>
+<li><a href="#usage-template">Benutzerdefinierte Template</a></li>
+</ul></li>
 <!--<li><a href="#limitations">Beschränkungen</a></li>-->
 <li><a href="#license">Lizenz</a></li>
 <li><a href="#credits">Danksagung</a></li>
@@ -84,6 +87,24 @@ Beispiel:</p>
 <pre>{{{feedview('http://3-magi.net/plugins/yanp/data/feed-de.xml');}}}</pre>
 <p>Sie können beliebig viele Feeds auf jeder Seite und/oder dem Template
 einbinden.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h3 id="usage-templates">Benutzerdefinierte Templates</h3>
+<p>Die Standard-Ansicht von Feedview_XH ist sehr einfach. Wenn Sie weitergehende
+Anforderungen und grundlegende Kenntnisse von PHP haben, dann können Sie sich
+Ihr eigenes Template erstellen. Diese Templates werden in feeedview/views/
+gespeichert und funktionieren ähnlich wie CMSimple_XH Templates (allerdings
+können Sie sie nicht im Administrationsbereich bearbeiten). Für den Anfang
+könnten Sie vielleicht eine Kopie von default.php erstellen, und mit ihr
+experimentieren.</p>
+<p>Um ein benutzerdefiniertes Template zu verwenden, müssen Sie seinen Namen
+(ohne das abschließende .php) als zweiten Parameter an feedview() übergeben. Zum
+Beispiel:</p>
+<pre>{{{feedview('%FEED_URL%', 'my_template');}}}
+&lt;?php echo feedview('%FEED_URL%, 'my_template');?&gt;</pre>
+<p>Innerhalb des Templates sind einige Variablen verfügbar, wovon die wichtigste
+$feed ist, ein Exemplar von <a
+href="http://simplepie.org/api/class-SimplePie.html">SimplePie</a>.</p>
 <div class="toplink"><a href="#">back to top</a></div>
 
 <!--<h2><a name="limitations">Beschränkungen</a></h2>-->

@@ -62,14 +62,15 @@ function Feedview_autoload($class)
  * Renders a feed.
  *
  * @param string $filename A feed filename.
+ * @param string $template A template name.
  *
  * @return string (X)HTML.
  */
-function feedview($filename)
+function feedview($filename, $template = 'default')
 {
     global $_Feedview_controller;
 
-    return $_Feedview_controller->renderFeed($filename);
+    return $_Feedview_controller->renderFeed($filename, $template);
 }
 
 spl_autoload_register('Feedview_autoload');

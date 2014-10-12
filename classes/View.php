@@ -40,13 +40,6 @@ class Feedview_View
     protected $data;
 
     /**
-     * Whether HTML shall be generated (opposed to XHTML).
-     *
-     * @var bool
-     */
-    protected $isHtml;
-
-    /**
      * Makes a new view object.
      *
      * @param string $template A template name.
@@ -66,7 +59,6 @@ class Feedview_View
      * @param array  $data     An array of data.
      *
      * @global array The paths of system files and folders.
-     * @global array The configuration of the plugins.
      */
     protected function __construct($template, $data)
     {
@@ -75,24 +67,58 @@ class Feedview_View
         $this->template = $pth['folder']['plugins'] . 'feedview/views/'
             . $template . '.php';
         $this->data = $data;
-        $this->isHtml = !$cf['xhtml']['endtags'];
     }
 
     /**
      * Renders the template.
      *
      * @return string (X)HTML.
+     *
+     * @global array The configuration of the core.
      */
     public function render()
+    {
+        global $cf;
+
+        if (!file_exists($this->template)) {
+            return $this->reportMissingTemplate();
+        }
+        $html = $this->doRender();
+        if (!$cf['xhtml']['endtags']) {
+            $html = str_replace(' />', '>', $html);
+        }
+        return $html;
+    }
+
+    /**
+     * Reports the missing template.
+     *
+     * @return string (X)HTML.
+     *
+     * @global array The localization of the plugins.
+     */
+    protected function reportMissingTemplate()
+    {
+        global $plugin_tx;
+
+        return XH_message(
+            'fail',
+            $plugin_tx['feedview']['message_template_missing'],
+            $this->template
+        );
+    }
+
+    /**
+     * Renders the template.
+     *
+     * @return string XHTML.
+     */
+    protected function doRender()
     {
         extract($this->data);
         ob_start();
         include $this->template;
-        $html = ob_get_clean();
-        if ($this->isHtml) {
-            $html = str_replace(' />', '>', $html);
-        }
-        return $html;
+        return ob_get_clean();
     }
 
     /**

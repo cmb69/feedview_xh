@@ -68,6 +68,7 @@ class Feedview_Controller
      * Renders a feed.
      *
      * @param string $filename A feed filename.
+     * @param string $template A template name.
      *
      * @return string (X)HTML.
      *
@@ -75,7 +76,7 @@ class Feedview_Controller
      * @global array The configuration of the plugins.
      * @global array The localization of the plugins.
      */
-    public function renderFeed($filename)
+    public function renderFeed($filename, $template)
     {
         global $pth, $plugin_cf, $plugin_tx;
 
@@ -91,7 +92,7 @@ class Feedview_Controller
         }
         $feed->set_feed_url($filename);
         $feed->init();
-        return Feedview_View::make('default', compact('feed', 'pcf', 'ptx'))
+        return Feedview_View::make($template, compact('feed', 'pcf', 'ptx'))
             ->render();
     }
 
