@@ -31,14 +31,27 @@ EOT
 }
 
 /**
- * The presentation layer.
- */
-require_once $pth['folder']['plugin_classes'] . 'Presentation.php';
-
-/**
  * The plugin version.
  */
 define('FEEDVIEW_VERSION', '@FEEDVIEW_VERSION@');
+
+/**
+ * Autoloads the plugin classes.
+ *
+ * @param string $class A class name.
+ *
+ * @return void
+ */
+function Feedview_autoload($class)
+{
+    global $pth;
+
+    $parts = explode('_', $class, 2);
+    if ($parts[0] == 'Feedview') {
+        include_once $pth['folder']['plugins'] . 'feedview/classes/'
+            . $parts[1] . '.php';
+    }
+}
 
 /**
  * Renders a feed.
@@ -53,6 +66,8 @@ function feedview($filename)
 
     return $_Feedview_controller->renderFeed($filename);
 }
+
+spl_autoload_register('Feedview_autoload');
 
 /**
  * The plugin controller.

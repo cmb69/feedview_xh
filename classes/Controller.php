@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The presentation layer.
+ * The controllers.
  *
  * PHP version 5
  *
