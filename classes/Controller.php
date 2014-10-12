@@ -79,9 +79,10 @@ class Feedview_Controller
     {
         global $pth, $plugin_cf, $plugin_tx;
 
+        $pcf = $plugin_cf['feedview'];
         $ptx = $plugin_tx['feedview'];
         $feed = new SimplePie();
-        if ($plugin_cf['feedview']['cache_enabled']) {
+        if ($pcf['cache_enabled']) {
             $feed->set_cache_location(
                 $pth['folder']['plugins'] . 'feedview/cache/'
             );
@@ -90,7 +91,8 @@ class Feedview_Controller
         }
         $feed->set_feed_url($filename);
         $feed->init();
-        return Feedview_View::make('default', compact('feed', 'ptx'))->render();
+        return Feedview_View::make('default', compact('feed', 'pcf', 'ptx'))
+            ->render();
     }
 
     /**

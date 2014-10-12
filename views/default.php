@@ -8,7 +8,7 @@
     </h4>
     <p><?php echo $feed->get_description();?></p>
 </div>
-<?php foreach ($feed->get_items() as $item):?>
+<?php foreach ($feed->get_items(0, (int) $pcf['default_items']) as $item):?>
 <div class="feedview_item">
     <h5>
         <a href="<?php echo $item->get_permalink();?>" target="_blank">
