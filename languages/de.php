@@ -5,6 +5,8 @@ $plugin_tx['feedview']['format_date']="j.n.Y, G:i";
 $plugin_tx['feedview']['message_posted']="Verfasst am %s Uhr";
 $plugin_tx['feedview']['message_template_missing']="Das Feedview_XH Template \"%s\" existiert nicht!";
 
+$plugin_tx['feedview']['error_read_feed']="Der Feed \"%s\" kann nicht gelesen werden!";
+
 $plugin_tx['feedview']['alt_icon']="RSS-Icon";
 
 $plugin_tx['feedview']['cf_cache_enabled']="Sollen die Feeds zwischengespeichert werden?";

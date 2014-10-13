@@ -106,7 +106,9 @@ class Feedview_Controller
             $feed->enable_cache(false);
         }
         $feed->set_feed_url($filename);
-        $feed->init();
+        if (!$feed->init()) {
+            return XH_message('fail', $ptx['error_read_feed'], $filename);
+        }
         return Feedview_View::make($template, compact('feed', 'pcf', 'ptx'))
             ->render();
     }
