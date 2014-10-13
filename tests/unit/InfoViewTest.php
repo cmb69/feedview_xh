@@ -35,7 +35,7 @@ class InfoViewTest extends PHPUnit_Framework_TestCase
      *
      * @var Feedview_Controller
      */
-    private $_subject;
+    protected $subject;
 
     /**
      * Sets up the test fixture.
@@ -61,11 +61,14 @@ class InfoViewTest extends PHPUnit_Framework_TestCase
         $plugin_tx = array(
             'feedview' => array('alt_icon' => 'RSS icon')
         );
-        $this->_subject = new Feedview_Controller();
+        $this->subject = new Feedview_Controller();
         $printPluginAdmin = new PHPUnit_Extensions_MockFunction(
-            'print_plugin_admin', $this->_subject
+            'print_plugin_admin', $this->subject
         );
-        $this->_subject->dispatch();
+        new PHPUnit_Extensions_MockFunction(
+            'XH_registerStandardPluginMenuItems', $this->subject
+        );
+        $this->subject->dispatch();
     }
 
     /**

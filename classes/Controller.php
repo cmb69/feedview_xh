@@ -26,19 +26,34 @@
 class Feedview_Controller
 {
     /**
-     * Dispatch according to the request.
+     * Dispatches according to the request.
      *
      * @return void
-     *
-     * @global string Whether the plugin administration is requested.
      */
     public function dispatch()
     {
+        if (XH_ADM) {
+            XH_registerStandardPluginMenuItems(false);
+            if ($this->isAdministrationRequested()) {
+                $this->_handleAdministration();
+            }
+        }
+    }
+
+    /**
+     * Returns whether the plugin administration is requested.
+     *
+     * @return bool
+     *
+     * @global string Whether the plugin administration is requested.
+     */
+    protected function isAdministrationRequested()
+    {
         global $feedview;
 
-        if (XH_ADM && isset($feedview) && $feedview == 'true') {
-            $this->_handleAdministration();
-        }
+        return function_exists('XH_wantsPluginAdministration')
+            && XH_wantsPluginAdministration('feedview')
+            || isset($feedview) && $feedview == 'true';
     }
 
     /**

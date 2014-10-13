@@ -30,6 +30,26 @@ require_once './classes/Controller.php';
 class AdministrationTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * The test subject.
+     *
+     * @var Feedview_Controller
+     */
+    protected $subject;
+
+    /**
+     * Sets up the test fixture.
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        $this->subject = new Feedview_Controller();
+        new PHPUnit_Extensions_MockFunction(
+            'XH_registerStandardPluginMenuItems', $this->subject
+        );
+    }
+
+    /**
      * Tests the stylesheet administration.
      *
      * @return void
@@ -46,17 +66,16 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
         $feedview = 'true';
         $admin = 'plugin_stylesheet';
         $action = 'plugin_text';
-        $subject = new Feedview_Controller();
         $printPluginAdmin = new PHPUnit_Extensions_MockFunction(
-            'print_plugin_admin', $subject
+            'print_plugin_admin', $this->subject
         );
         $printPluginAdmin->expects($this->once())->with('off');
         $pluginAdminCommon = new PHPUnit_Extensions_MockFunction(
-            'plugin_admin_common', $subject
+            'plugin_admin_common', $this->subject
         );
         $pluginAdminCommon->expects($this->once())
             ->with($action, $admin, 'feedview');
-        $subject->dispatch();
+        $this->subject->dispatch();
     }
 
     /**
