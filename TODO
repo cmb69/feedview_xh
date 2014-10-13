@@ -1,6 +1,5 @@
 * XH_wantsPluginAdministration(), XH_registerStandardPluginMenuItems()
 * check XHTML vs. HTML
-* make 2. parameter for view file
 * integrated plugin menu
 * force_fsockopen ?
 * report error for unknow feed
