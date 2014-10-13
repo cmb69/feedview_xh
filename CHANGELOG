@@ -1,2 +1,11 @@
+Version 1.0beta1 -- released 2014-10-13
+* fixed bug, where multiple feeds on a single page didn't work
+* renamed views/simple.htm to views/default.php
+* improved error reporting
+* added config option default_items (inspired by Ralf H.)
+* added CSS classes for easier styling of the default view (suggested by Der
+  Zwerch and Ralf H.)
+* added possibility to use custom views
+
 Version 1.0alpha1 -- released 2014-08-06
 * first release
