@@ -94,7 +94,6 @@
                 <exclude name="build.xml"/>
                 <exclude name="composer.*"/>
                 <exclude name="coverage.xml"/>
-                <exclude name="feedview.komodoproject"/>
                 <exclude name="phpcompatinfo.*"/>
                 <exclude name="tests/**"/>
                 <exclude name="TODO"/>
