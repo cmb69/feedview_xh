@@ -23,20 +23,9 @@ namespace Feedview;
 
 use SimplePie;
 
-/**
- * The controllers.
- *
- * @category CMSimple_XH
- * @package  Feedview
- * @author   Christoph M. Becker <cmbecker69@gmx.de>
- * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
- * @link     http://3-magi.net/?CMSimple_XH/Feedview_XH
- */
 class Controller
 {
     /**
-     * Dispatches according to the request.
-     *
      * @return void
      */
     public function dispatch()
@@ -50,11 +39,7 @@ class Controller
     }
 
     /**
-     * Returns whether the plugin administration is requested.
-     *
      * @return bool
-     *
-     * @global string Whether the plugin administration is requested.
      */
     protected function isAdministrationRequested()
     {
@@ -66,13 +51,7 @@ class Controller
     }
 
     /**
-     * Handles the administration.
-     *
      * @return void
-     *
-     * @global string The value of the <var>admin</var> GP parameter.
-     * @global string The value of the <var>action</var> GP parameter.
-     * @global string The HTML of the contents area.
      */
     private function handleAdministration()
     {
@@ -89,16 +68,9 @@ class Controller
     }
 
     /**
-     * Renders a feed.
-     *
-     * @param string $filename A feed filename.
-     * @param string $template A template name.
-     *
-     * @return string (X)HTML.
-     *
-     * @global array The paths of system files and folders.
-     * @global array The configuration of the plugins.
-     * @global array The localization of the plugins.
+     * @param string $filename
+     * @param string $template
+     * @return string
      */
     public function renderFeed($filename, $template)
     {
@@ -123,9 +95,7 @@ class Controller
     }
 
     /**
-     * Renders the info view.
-     *
-     * @return string (X)HTML.
+     * @return string
      */
     public function renderInfo()
     {
@@ -136,12 +106,7 @@ class Controller
     }
 
     /**
-     * Renders the plugin icon.
-     *
-     * @return (X)HTML.
-     *
-     * @global array The paths of system files and folders.
-     * @global array The localization of the plugins.
+     * @return string
      */
     private function renderIcon()
     {
@@ -155,9 +120,7 @@ class Controller
     }
 
     /**
-     * Renders the copyright info.
-     *
-     * @return (X)HTML.
+     * @return string
      */
     private function renderCopyright()
     {
@@ -169,9 +132,7 @@ EOT;
     }
 
     /**
-     * Renders the license info.
-     *
-     * @return (X)HTML.
+     * @return string
      */
     private function renderLicense()
     {

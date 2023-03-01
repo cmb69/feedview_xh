@@ -37,16 +37,10 @@ EOT
     );
 }
 
-/**
- * The plugin version.
- */
 define('FEEDVIEW_VERSION', "1.0");
 
 /**
- * Autoloads the plugin classes.
- *
- * @param string $class A class name.
- *
+ * @param string $class
  * @return void
  */
 function Feedview_autoload($class)
@@ -66,12 +60,9 @@ function Feedview_autoload($class)
 }
 
 /**
- * Renders a feed.
- *
- * @param string $filename A feed filename.
- * @param string $template A template name.
- *
- * @return string (X)HTML.
+ * @param string $filename
+ * @param string $template
+ * @return string
  */
 function feedview($filename, $template = 'default')
 {
@@ -82,8 +73,5 @@ function feedview($filename, $template = 'default')
 
 spl_autoload_register('Feedview_autoload');
 
-/**
- * The plugin controller.
- */
 $_Feedview_controller = new Controller();
 $_Feedview_controller->dispatch();

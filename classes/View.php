@@ -21,37 +21,21 @@
 
 namespace Feedview;
 
-/**
- * The views.
- *
- * @category CMSimple_XH
- * @package  Feedview
- * @author   Christoph M. Becker <cmbecker69@gmx.de>
- * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
- * @link     http://3-magi.net/?CMSimple_XH/Feedview_XH
- */
 class View
 {
     /**
-     * The path of the template file.
-     *
      * @var string
      */
     protected $template;
 
     /**
-     * The data.
-     *
      * @var array<string, *>
      */
     protected $data;
 
     /**
-     * Makes a new view object.
-     *
-     * @param string $template A template name.
-     * @param array  $data     An array of data.
-     *
+     * @param string $template
+     * @param array  $data
      * @return View
      */
     public static function make($template, $data)
@@ -60,12 +44,8 @@ class View
     }
 
     /**
-     * Initializes a new instance.
-     *
-     * @param string $template A template name.
-     * @param array  $data     An array of data.
-     *
-     * @global array The paths of system files and folders.
+     * @param string $template
+     * @param array  $data
      */
     protected function __construct($template, $data)
     {
@@ -77,11 +57,7 @@ class View
     }
 
     /**
-     * Renders the template.
-     *
-     * @return string (X)HTML.
-     *
-     * @global array The configuration of the core.
+     * @return string
      */
     public function render()
     {
@@ -98,11 +74,7 @@ class View
     }
 
     /**
-     * Reports the missing template.
-     *
-     * @return string (X)HTML.
-     *
-     * @global array The localization of the plugins.
+     * @return string
      */
     protected function reportMissingTemplate()
     {
@@ -116,9 +88,7 @@ class View
     }
 
     /**
-     * Renders the template.
-     *
-     * @return string XHTML.
+     * @return string
      */
     protected function doRender()
     {
@@ -129,8 +99,6 @@ class View
     }
 
     /**
-     * Dummy to prevent direct access of template files.
-     *
      * @return void
      */
     protected function preventAccess()
