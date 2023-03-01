@@ -1,147 +1,91 @@
 <!DOCTYPE html>
-<html lang="de">
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8">
-<title>Feedview_XH – Handbuch</title>
-<link rel="stylesheet" type="text/css" href="./stylesheet.css">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Feedview_XH – Benutzerhandbuch</title>
+  <style type="text/css">
+    body {
+        font-family: Georgia, serif;
+        line-height: 1.5;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        background: #ffffe1;
+        max-width: 40em;
+    }
+    p {
+        text-align: justify;
+    }
+    pre {
+        color: black;
+        background: #ffe;
+        overflow: auto;
+        padding: 0.2em 0.5em;
+        border: 1px solid silver;
+    }
+  </style>
 </head>
-
 <body>
-
-<h1>Feedview_XH - ein CMSimple_XH Plugin</h1>
-<img src="../feedview.png" style="float: left; margin: 0.5em 1em 0 0"
-alt="RSS-Icon">
-<p>Feedview_XH ermöglicht die Einbindung von RSS und Atom News-Feeds auf Ihrer
-Website.</p>
-<p>Beachten Sie, dass die Wiedergabe solcher Feeds nich notwendiger Weise
-erlaubt ist; prüfen Sie die Bestimmungen des Herausgebers des Feeds; im
-Zweifelsfall fragen Sie um Erlaubnis.</p>
-
-<ul id="nav">
-<li><a href="#notice">Wichtiger Hinweis</a></li>
-<li><a href="#requirements">Voraussetzungen</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#settings">Einstellungen</a></li>
-<li><a href="#usage">Verwendung</a>
+<h1 id="feedview_xh">Feedview_XH</h1>
+<p>Feedview_XH ermöglicht die Einbindung von RSS und Atom News-Feeds auf Ihrer Website. Beachten Sie, dass die Wiedergabe solcher Feeds nicht notwendigerweise erlaubt ist; prüfen Sie die Bestimmungen des Herausgebers des Feeds; im Zweifelsfall fragen Sie um Erlaubnis.</p>
 <ul>
-<li><a href="#usage-template">Benutzerdefinierte Template</a></li>
+<li><a href="#voraussetzungen">Voraussetzungen</a></li>
+<li><a href="#download">Download</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#einstellungen">Einstellungen</a></li>
+<li><a href="#verwendung">Verwendung</a>
+<ul>
+<li><a href="#benutzerdefinierte-templates">Benutzerdefinierte Templates</a></li>
 </ul></li>
-<li><a href="#limitations">Einschränkungen</a></li>
-<li><a href="#license">Lizenz</a></li>
-<li><a href="#credits">Danksagung</a></li>
+<li><a href="#fehlerbehebung">Fehlerbehebung</a></li>
+<li><a href="#lizenz">Lizenz</a></li>
+<li><a href="#danksagung">Danksagung</a></li>
 </ul>
-
-<div id="body">
-
-<p><strong>Bitte lesen Sie diese Dokumentation <em>bevor</em> Sie auf Probleme
-stoßen!</strong></p>
-
-<h2 id="notice">Wichtiger Hinweis</h2>
-<p style="font-weight: bold">Feedview_XH konnte bisher nicht in diversen
-Umgebungen getestet werden. Es ist eine so genannte Beta-Version. Vorsicht bei
-der Verwendung!</p>
-<div class="toplink"><a href="#">zum Seitenanfang</a></div>
-
-<h2 id="requirements">Voraussetzungen</h2>
-<p>Feedview_XH ist ein Plugin für CMSimple_XH. Es benötigt CMSimple_XH &ge; 1.6
-und PHP &ge; 5.2.</p>
-<div class="toplink"><a href="#">zum Seitenanfang</a></div>
-
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<p>Feedview_XH ist ein Plugin für CMSimple_XH. Es benötigt CMSimple_XH ≥ 1.6 und PHP ≥ 5.2.</p>
+<h2 id="download">Download</h2>
+<p>Das <a href="https://github.com/cmb69/feedview_xh/releases/latest">aktuelle Release</a> kann von Github herunter geladen werden.</p>
 <h2 id="installation">Installation</h2>
-<p>Die Installation erfolgt wie bei vielen anderen CMSimple_XH-Plugins auch. Im
-<a href="http://www.cmsimple-xh.org/wiki/doku.php/de:installation">CMSimple_XH
-Wiki</a> finden sie ausführliche Hinweise.</p>
-<ol>
-<li>Sichern Sie die Daten auf Ihrem Server.</li>
+<p>Die Installation erfolgt wie bei vielen anderen CMSimple_XH-Plugins auch. Im <a href="https://wiki.cmsimple-xh.org/doku.php/de:installation#plugins">CMSimple_XH Wiki</a> finden Sie weitere Details.</p>
+<ol type="1">
+<li><strong>Sichern Sie die Daten auf Ihrem Server.</strong></li>
 <li>Entpacken Sie die ZIP-Datei auf Ihrem Computer.</li>
-<li>Laden Sie das gesamte Verzeichnis feedview/ auf Ihren Server in das plugins/
-Verzeichnis von CMSimple_XH hoch.</li>
-<li>Vergeben Sie Schreibrechte für die Unterverzeichnisse cache, css/, config/
-und languages/.</li>
-<!--<li>Navigieren Sie zur Administration von Feedview, und prüfen Sie, ob alle
-Voraussetzungen für den Betrieb erfüllt sind.</li>-->
+<li>Laden Sie den gesamten Ordner <code>feedview/</code> auf Ihren Server in den <code>plugins/</code> Ordner von CMSimple_XH hoch.</li>
+<li>Vergeben Sie Schreibrechte für die Unterverzeichnisse <code>cache/</code>, <code>css/</code>, <code>config/</code> und <code>languages/</code>.</li>
 </ol>
-<div class="toplink"><a href="#">zum Seitenanfang</a></div>
-
-<h2 id="settings">Einstellungen</h2>
-<p>Die Konfiguration des Plugins erfolgt wie bei vielen anderen
-CMSimple_XH-Plugins auch im Administrationsbereich der Homepage. Wählen Sie
-Plugins &rarr; Feedview.</p>
-<p>Sie können die Original-Einstellungen von Feedview_XH unter "Konfiguration"
-ändern. Beim Überfahren der Hilfe-Icons mit der Maus werden Hinweise zu den
-Einstellungen angezeigt.</p>
-<p>Die Lokalisierung wird unter "Sprache" vorgenommen. Sie können die
-Zeichenketten in Ihre eigene Sprache übersetzen (falls keine entsprechende
-Sprachdatei zur Verfügung steht), oder sie entsprechend Ihren Anforderungen
-anpassen.</p>
-<p>Das Aussehen von Feedview_XH kann unter "Stylesheet" angepasst werden.</p>
-<div class="toplink"><a href="#">zum Seitenanfang</a></div>
-
-<h2 id="usage">Verwendung</h2>
+<h2 id="einstellungen">Einstellungen</h2>
+<p>Die Konfiguration des Plugins erfolgt wie bei vielen anderen CMSimple_XH Plugins auch im Administrationsbereich der Homepage. Wählen Sie Plugins → Feedview.</p>
+<p>Sie können die Original-Einstellungen von Feedview_XH unter <code>Konfiguration</code> ändern. Beim Überfahren der Hilfe-Icons mit der Maus werden Hinweise zu den Einstellungen angezeigt.</p>
+<p>Die Lokalisierung wird unter <code>Sprache</code> vorgenommen. Sie können die Zeichenketten in Ihre eigene Sprache übersetzen (falls keine entsprechende Sprachdatei zur Verfügung steht), oder sie entsprechend Ihren Anforderungen anpassen.</p>
+<p>Das Aussehen von Feedview_XH kann unter <code>Stylesheet</code> angepasst werden.</p>
+<h2 id="verwendung">Verwendung</h2>
 <p>Um einen Feed auf einer CMSimple_XH Seite einzubinden, schreiben Sie:</p>
-<pre>{{{feedview('%FEED_URL%');}}}</pre>
+<pre><code>{{{feedview(&#39;%FEED_URL%&#39;)}}}</code></pre>
 <p>Um einen Feed im Template einzubinden, schreiben Sie:</p>
-<pre>&lt;?php echo feedview('%FEED_URL%);?&gt;</pre>
-<p>%FEED_URL% ist die URL eines beliebigen RSS oder Atom News-Feeds. Zum
-Beispiel:</p>
-<pre>{{{feedview('http://3-magi.net/plugins/yanp/data/feed-de.xml');}}}</pre>
-<p>Sie können beliebig viele Feeds auf jeder Seite und/oder dem Template
-einbinden.</p>
-<div class="toplink"><a href="#">back to top</a></div>
-
-<h3 id="usage-templates">Benutzerdefinierte Templates</h3>
-<p>Die Standard-Ansicht von Feedview_XH ist sehr einfach. Wenn Sie weitergehende
-Anforderungen und grundlegende Kenntnisse von PHP haben, dann können Sie sich
-Ihr eigenes Template erstellen. Diese Templates werden in feeedview/views/
-gespeichert und funktionieren ähnlich wie CMSimple_XH Templates (allerdings
-können Sie sie nicht im Administrationsbereich bearbeiten). Für den Anfang
-könnten Sie vielleicht eine Kopie von default.php erstellen, und mit ihr
-experimentieren.</p>
-<p>Um ein benutzerdefiniertes Template zu verwenden, müssen Sie seinen Namen
-(ohne das abschließende .php) als zweiten Parameter an feedview() übergeben. Zum
-Beispiel:</p>
-<pre>{{{feedview('%FEED_URL%', 'my_template');}}}
-&lt;?php echo feedview('%FEED_URL%, 'my_template');?&gt;</pre>
-<p>Innerhalb des Templates sind einige Variablen verfügbar, wovon die wichtigste
-$feed ist, ein Exemplar von <a
-href="http://simplepie.org/api/class-SimplePie.html">SimplePie</a>.</p>
-<div class="toplink"><a href="#">back to top</a></div>
-
-<h2><a name="limitations">Einschränkungen</a></h2>
-<p>Die Feedanzeige kann ungültiges XHTML enthalten, wenn CMSimple_XHs
-Konfigurationoption xhtml &rarr; endtags aktiviert ist.</p>
-<div class="toplink"><a href="#">zum Seitenanfang</a></div>
-
-<h2 id="license">Lizenz</h2>
-<p>Feedview_XH kann unter Einhaltung der <a
-href="http://www.gnu.org/licenses/gpl.html">GPLv3</a> verwendet werden.</p>
-<p>&copy; 2014 Christoph M. Becker</p>
-<div class="toplink"><a href="#">zum Seitenanfang</a></div>
-
-<h2 id="credits">Danksagung</h2>
-<p>Feedview_XH wird von <a href="http://simplepie.org/">SimplePie</a>
-angetrieben. Vielen Dank an alle Entwickler, die die Entwicklung wieder
-aufgenommen haben, nachdem sie 2009 eingestellt wurde. Und natürlich vielen Dank
-für die Veröffentlichung dieser tollen Bibliothek unter BSD Lizenz.</p>
-<p>Das Plugin-Icon wurde von <a
-href="http://en.wikipedia.org/wiki/User:Anomie">Anomie</a> gestaltet. Vielen
-Dank für die Veröffentlichung des Icons unter GPL.</p>
-<!--<p>Dieses Plugin verwendet "free applications icons" von <a-->
-<!--href="http://www.aha-soft.com/">Aha-Soft</a>. Vielen Dank für die freie-->
-<!--Verwendbarkeit dieser Icons.</p>-->
-<p>Vielen Dank an die Gemeinschaft im <a
-href="http://www.cmsimpleforum.com/">CMSimple_XH-Forum</a> für Tipps, Anregungen
-und das Testen. Besonders möchte ich Der Zwerch und Ralf H. für ihr frühes
-Feedback danken.</p>
-<p>Zu guter Letzt vielen Dank an <a href="http://harteg.dk/">Peter Harteg</a>,
-den "Vater" von CMSimple, und allen Entwicklern von <a
-href="http://www.cmsimple-xh.org/">CMSimple_XH</a>, ohne die dieses fantastische
-CMS nicht existieren würde.</p>
-<div class="toplink"><a href="#">zum Seitenanfang</a></div>
-
-</div>
-
+<pre><code>&lt;?php echo feedview(&#39;%FEED_URL%&#39;)?&gt;</code></pre>
+<p><code>%FEED_URL%</code> ist die URL eines beliebigen RSS oder Atom News-Feeds. Zum Beispiel:</p>
+<pre><code>{{{feedview(&#39;http://3-magi.net/plugins/yanp/data/feed-de.xml&#39;)}}}</code></pre>
+<p>Sie können beliebig viele Feeds auf jeder Seite und/oder dem Template einbinden.</p>
+<h3 id="benutzerdefinierte-templates">Benutzerdefinierte Templates</h3>
+<p>Die Standard-Ansicht von Feedview_XH ist sehr einfach. Wenn Sie weitergehende Anforderungen und grundlegende Kenntnisse von PHP haben, dann können Sie sich Ihr eigenes Template erstellen. Diese Templates werden in <code>feeedview/views/</code> gespeichert und funktionieren ähnlich wie CMSimple_XH Templates (allerdings können Sie sie nicht im Administrationsbereich bearbeiten). Für den Anfang könnten Sie vielleicht eine Kopie von <code>default.php</code> erstellen, und mit ihr experimentieren.</p>
+<p>Um ein benutzerdefiniertes Template zu verwenden, müssen Sie seinen Namen (ohne das abschließende .php) als zweiten Parameter an <code>feedview()</code> übergeben. Zum Beispiel:</p>
+<pre><code>{{{feedview(&#39;%FEED_URL%&#39;, &#39;my_template&#39;)}}}
+&lt;?php echo feedview(&#39;%FEED_URL%, &#39;my_template&#39;);?&gt;</code></pre>
+<p>Innerhalb des Templates sind einige Variablen verfügbar, wovon die wichtigste <code>$feed</code> ist, ein Exemplar von <a href="https://dev.simplepie.org/api/class-SimplePie.html">SimplePie</a>.</p>
+<h2 id="fehlerbehebung">Fehlerbehebung</h2>
+<p>Melden Sie Programmfehler und stellen Sie Supportanfragen entweder auf <a href="https://github.com/cmb69/feedview_xh/issues">Github</a> oder im <a href="https://cmsimpleforum.com/">CMSimple_XH Forum</a>.</p>
+<h2 id="lizenz">Lizenz</h2>
+<p>Feedview_XH ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.</p>
+<p>Die Veröffentlichung von Feedview_XH erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, <em>aber ohne irgendeine Garantie</em>, sogar ohne die implizite Garantie der <em>Marktreife</em> oder der <em>Verwendbarkeit für einen bestimmten Zweck</em>. Details finden Sie in der GNU General Public License.</p>
+<p>Sie sollten ein Exemplar der GNU General Public License zusammen mit Feedview_XH erhalten haben. Falls nicht, siehe <a href="https://www.gnu.org/licenses/" class="uri">https://www.gnu.org/licenses/</a>.</p>
+<p>Copyright 2014 Christoph M. Becker</p>
+<h2 id="danksagung">Danksagung</h2>
+<p>Feedview_XH wird von <a href="https://simplepie.org/">SimplePie</a> angetrieben. Vielen Dank an alle Entwickler, die die Entwicklung wieder aufgenommen haben, nachdem sie 2009 eingestellt wurde. Und natürlich vielen Dank für die Veröffentlichung dieser tollen Bibliothek unter BSD Lizenz.</p>
+<p>Das Plugin-Icon wurde von <a href="https://en.wikipedia.org/wiki/User:Anomie">Anomie</a> gestaltet. Vielen Dank für die Veröffentlichung des Icons unter GPL.</p>
+<p>Vielen Dank an die Gemeinschaft im <a href="https://www.cmsimpleforum.com/">CMSimple_XH Forum</a> für Tipps, Anregungen und das Testen. Besonders möchte ich <em>Der Zwerch</em> und <em>Ralf H</em>. für ihr frühes Feedback danken.</p>
+<p>Und zu guter letzt vielen Dank an <a href="https://www.harteg.dk/">Peter Harteg</a>, den “Vater” von CMSimple, und allen Entwicklern von <a href="https://www.cmsimple-xh.org/de/">CMSimple_XH</a> ohne die es dieses phantastische CMS nicht gäbe.</p>
 </body>
-
 </html>
