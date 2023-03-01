@@ -14,6 +14,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
 
+namespace Feedview;
+
 require_once './vendor/autoload.php';
 require_once '../../cmsimple/functions.php';
 require_once './classes/View.php';
@@ -41,7 +43,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
     /**
      * The test subject.
      *
-     * @var Feedview_View
+     * @var View
      */
     protected $subject;
 
@@ -53,7 +55,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->setUpFileSystem();
-        $this->subject = Feedview_View::make('test', ['foo' => 'bar']);
+        $this->subject = View::make('test', ['foo' => 'bar']);
     }
 
     /**
@@ -83,7 +85,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testMissingTemplateIsReported()
     {
-        $subject = Feedview_View::make('foo', []);
+        $subject = View::make('foo', []);
         $messageMock = new PHPUnit_Extensions_MockFunction('XH_message', $subject);
         $messageMock->expects($this->once())->with('fail');
         $subject->render();

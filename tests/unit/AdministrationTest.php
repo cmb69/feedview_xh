@@ -14,6 +14,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
 
+namespace Feedview;
+
 require_once './vendor/autoload.php';
 require_once '../../cmsimple/adminfuncs.php';
 require_once './classes/Controller.php';
@@ -32,7 +34,7 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
     /**
      * The test subject.
      *
-     * @var Feedview_Controller
+     * @var Controller
      */
     protected $subject;
 
@@ -43,7 +45,7 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->subject = new Feedview_Controller();
+        $this->subject = new Controller();
         new PHPUnit_Extensions_MockFunction(
             'XH_registerStandardPluginMenuItems', $this->subject
         );

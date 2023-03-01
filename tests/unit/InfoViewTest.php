@@ -14,6 +14,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
 
+namespace Feedview;
+
 require_once './vendor/autoload.php';
 require_once '../../cmsimple/functions.php';
 require_once '../../cmsimple/adminfuncs.php';
@@ -33,7 +35,7 @@ class InfoViewTest extends PHPUnit_Framework_TestCase
     /**
      * The subject under test.
      *
-     * @var Feedview_Controller
+     * @var Controller
      */
     protected $subject;
 
@@ -61,7 +63,7 @@ class InfoViewTest extends PHPUnit_Framework_TestCase
         $plugin_tx = array(
             'feedview' => array('alt_icon' => 'RSS icon')
         );
-        $this->subject = new Feedview_Controller();
+        $this->subject = new Controller();
         $printPluginAdmin = new PHPUnit_Extensions_MockFunction(
             'print_plugin_admin', $this->subject
         );

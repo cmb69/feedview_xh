@@ -14,6 +14,10 @@
  * @link      http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
 
+namespace Feedview;
+
+use SimplePie;
+
 /**
  * The controllers.
  *
@@ -23,7 +27,7 @@
  * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link     http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
-class Feedview_Controller
+class Controller
 {
     /**
      * Dispatches according to the request.
@@ -35,7 +39,7 @@ class Feedview_Controller
         if (XH_ADM) {
             XH_registerStandardPluginMenuItems(false);
             if ($this->isAdministrationRequested()) {
-                $this->_handleAdministration();
+                $this->handleAdministration();
             }
         }
     }
@@ -65,17 +69,17 @@ class Feedview_Controller
      * @global string The value of the <var>action</var> GP parameter.
      * @global string The HTML of the contents area.
      */
-    private function _handleAdministration()
+    private function handleAdministration()
     {
         global $admin, $action, $o;
 
         $o .= print_plugin_admin('off');
         switch ($admin) {
-        case '':
-            $o .= $this->renderInfo();
-            break;
-        default:
-            $o .= plugin_admin_common($action, $admin, 'feedview');
+            case '':
+                $o .= $this->renderInfo();
+                break;
+            default:
+                $o .= plugin_admin_common($action, $admin, 'feedview');
         }
     }
 
@@ -109,7 +113,7 @@ class Feedview_Controller
         if (!$feed->init()) {
             return XH_message('fail', $ptx['error_read_feed'], $filename);
         }
-        return Feedview_View::make($template, compact('feed', 'pcf', 'ptx'))
+        return View::make($template, compact('feed', 'pcf', 'ptx'))
             ->render();
     }
 
@@ -121,9 +125,9 @@ class Feedview_Controller
     public function renderInfo()
     {
         return '<h1>Feedview</h1>'
-            . $this->_renderIcon()
+            . $this->renderIcon()
             . '<p>Version: ' . FEEDVIEW_VERSION . '</p>'
-            . $this->_renderCopyright() . $this->_renderLicense();
+            . $this->renderCopyright() . $this->renderLicense();
     }
 
     /**
@@ -134,7 +138,7 @@ class Feedview_Controller
      * @global array The paths of system files and folders.
      * @global array The localization of the plugins.
      */
-    private function _renderIcon()
+    private function renderIcon()
     {
         global $pth, $plugin_tx;
 
@@ -150,7 +154,7 @@ class Feedview_Controller
      *
      * @return (X)HTML.
      */
-    private function _renderCopyright()
+    private function renderCopyright()
     {
         return <<<EOT
 <p>Copyright &copy; 2014
@@ -164,7 +168,7 @@ EOT;
      *
      * @return (X)HTML.
      */
-    private function _renderLicense()
+    private function renderLicense()
     {
         return <<<EOT
 <p class="feedview_license">This program is free software: you can
@@ -182,5 +186,3 @@ href="http://www.gnu.org/licenses/" target="_blank">http://www.gnu.org/licenses/
 EOT;
     }
 }
-
-?>

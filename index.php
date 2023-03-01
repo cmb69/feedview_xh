@@ -14,6 +14,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
 
+use Feedview\Controller;
+
 /*
  * Prevent direct access and usage from unsupported CMSimple_XH versions.
  */
@@ -78,7 +80,5 @@ spl_autoload_register('Feedview_autoload');
 /**
  * The plugin controller.
  */
-$_Feedview_controller = new Feedview_Controller();
+$_Feedview_controller = new Controller();
 $_Feedview_controller->dispatch();
-
-?>

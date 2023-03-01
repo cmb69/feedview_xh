@@ -14,6 +14,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
 
+namespace Feedview;
+
 /**
  * The views.
  *
@@ -23,7 +25,7 @@
  * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link     http://3-magi.net/?CMSimple_XH/Feedview_XH
  */
-class Feedview_View
+class View
 {
     /**
      * The path of the template file.
@@ -45,9 +47,9 @@ class Feedview_View
      * @param string $template A template name.
      * @param array  $data     An array of data.
      *
-     * @return Feedview_View
+     * @return View
      */
-    static public function make($template, $data)
+    public static function make($template, $data)
     {
         return new self($template, $data);
     }
@@ -131,5 +133,3 @@ class Feedview_View
         // pass
     }
 }
-
-?>
