@@ -19,7 +19,7 @@ Zweifelsfall fragen Sie um Erlaubnis.
 ## Voraussetzungen
 
 Feedview_XH ist ein Plugin für CMSimple_XH.
-Es benötigt CMSimple_XH ≥ 1.6 und PHP ≥ 5.2.
+Es benötigt CMSimple_XH ≥ 1.6 und PHP ≥ 7.2.0.
 
 ## Download
 
