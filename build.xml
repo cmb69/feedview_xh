@@ -3,7 +3,9 @@
 <project name="Feedview" default="help">
 
   <target name="help" description="lists available targets">
-    <exec command="phing -l" outputProperty="help"/>
+    <exec executable="phing" outputProperty="help">
+      <arg value="-l"/>
+    </exec>
     <echo>${help}</echo>
   </target>
 
@@ -13,6 +15,13 @@
       <arg line="--runtime-set ignore_warnings_on_exit true"/>
       <arg file="index.php"/>
       <arg file="classes"/>
+    </exec>
+  </target>
+
+  <target name="stan" description="run static analysis">
+    <exec executable="phpstan" passthru="true" checkreturn="true">
+      <arg value="--ansi"/>
+      <arg value="analyze"/>
     </exec>
   </target>
 
@@ -33,10 +42,12 @@
     <delete file="export.zip"/>
     <move todir="dist">
       <fileset dir="export">
+        <exclude name=".github/**"/>
+        <exclude name=".phive/**"/>
         <exclude name="help/template.htm"/>
-        <exclude name="tests/**"/>
         <exclude name="build.xml"/>
         <exclude name="composer.*"/>
+        <exclude name="phpstan.neon"/>
         <exclude name="teplad.xml"/>
       </fileset>
     </move>

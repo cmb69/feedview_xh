@@ -30,7 +30,7 @@ class Controller
      */
     public function dispatch()
     {
-        if (XH_ADM) {
+        if (defined("XH_ADM") && XH_ADM) {
             XH_registerStandardPluginMenuItems(false);
             if ($this->isAdministrationRequested()) {
                 $this->handleAdministration();
@@ -63,7 +63,7 @@ class Controller
                 $o .= $this->renderInfo();
                 break;
             default:
-                $o .= plugin_admin_common($action, $admin, 'feedview');
+                $o .= plugin_admin_common();
         }
     }
 

@@ -1,0 +1,10 @@
+parameters:
+  level: 7
+  paths:
+    - classes
+    - views
+    - index.php
+  scanFiles:
+    - ../../cmsimple/adminfuncs.php
+    - ../../cmsimple/functions.php
+    - ./simplepie/simplepie_1.3.1.compiled.php

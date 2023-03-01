@@ -29,13 +29,13 @@ class View
     protected $template;
 
     /**
-     * @var array<string, *>
+     * @var array<string,mixed>
      */
     protected $data;
 
     /**
      * @param string $template
-     * @param array  $data
+     * @param array<string,mixed> $data
      * @return View
      */
     public static function make($template, $data)
@@ -45,7 +45,7 @@ class View
 
     /**
      * @param string $template
-     * @param array  $data
+     * @param array<string,mixed> $data
      */
     protected function __construct($template, $data)
     {
@@ -95,13 +95,13 @@ class View
         extract($this->data);
         ob_start();
         include $this->template;
-        return ob_get_clean();
+        return (string) ob_get_clean();
     }
 
     /**
      * @return void
      */
-    protected function preventAccess()
+    public function preventAccess()
     {
         // pass
     }

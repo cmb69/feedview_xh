@@ -1,4 +1,16 @@
-<?php $this->preventAccess()?>
+<?php
+
+use Feedview\View;
+
+/**
+ * @var View $this
+ * @var SimplePie $feed
+ * @var array<string,string> $pcf
+ * @var array<string,string> $ptx
+ */
+
+$this->preventAccess();
+?>
 <!-- Feedview_XH: default feed view -->
 <div class="feedview_header">
   <h4 class="feedview_feed_title">
