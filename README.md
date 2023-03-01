@@ -18,7 +18,7 @@ permission.
 ## Requirements
 
 Feedview_XH is a plugin for CMSimple_XH.
-It requires CMSimple_XH ≥ 1.6 and PHP ≥ 7.2.0.
+It requires CMSimple_XH ≥ 1.7.0 and PHP ≥ 7.2.0.
 
 ## Download
 
