@@ -33,7 +33,7 @@ EOT
 /**
  * The plugin version.
  */
-define('FEEDVIEW_VERSION', '1.0beta1');
+define('FEEDVIEW_VERSION', "1.0");
 
 /**
  * Autoloads the plugin classes.
