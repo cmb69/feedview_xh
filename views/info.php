@@ -8,6 +8,7 @@ use Feedview\Infra\View;
  * @var list<array{key:string,arg:string,class:string,state:string}> $checks
  */
 ?>
+<!-- feedview info -->
 <h1>Feedview <?=$this->esc($version)?></h1>
 <div>
   <h2><?=$this->text('syscheck_title')?></h2>

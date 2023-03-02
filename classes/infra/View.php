@@ -58,7 +58,7 @@ class View
     /** @param array<scalar> $args */
     public function error(string $key, ...$args): string
     {
-        return XH_message("fail", $this->text[$key], ...$args);
+        return XH_message("fail", $this->text[$key], ...$args) . "\n";
     }
 
     /** @param scalar $value */
