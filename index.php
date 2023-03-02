@@ -19,8 +19,8 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Feedview\Controller;
 use Feedview\FeedView;
+use Feedview\View;
 
 /*
  * Prevent direct access and usage from unsupported CMSimple_XH versions.
@@ -67,7 +67,14 @@ function Feedview_autoload($class)
  */
 function feedview($filename, $template = 'default')
 {
-    return (new FeedView)($filename, $template);
+    global $plugin_cf, $plugin_tx, $pth;
+    $handler = new FeedView(
+        $plugin_cf["feedview"],
+        $plugin_tx["feedview"],
+        new SimplePie,
+        new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"])
+    );
+    return $handler($filename, $template);
 }
 
 spl_autoload_register('Feedview_autoload');

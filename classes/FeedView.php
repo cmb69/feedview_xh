@@ -25,6 +25,30 @@ use SimplePie;
 
 class FeedView
 {
+    /** @var array<string,string> */
+    private $conf;
+
+    /** @var array<string,string> */
+    private $text;
+
+    /** @var SimplePie */
+    private $simplePie;
+
+    /** @var View */
+    private $view;
+
+    /**
+     * @param array<string,string> $conf
+     * @param array<string,string> $text
+     */
+    public function __construct(array $conf, array $text, SimplePie $simplePie, View $view)
+    {
+        $this->conf = $conf;
+        $this->text = $text;
+        $this->simplePie = $simplePie;
+        $this->view = $view;
+    }
+
     /**
      * @param string $filename
      * @param string $template
@@ -32,23 +56,24 @@ class FeedView
      */
     public function __invoke($filename, $template)
     {
-        global $pth, $plugin_cf, $plugin_tx;
+        global $pth;
 
-        $pcf = $plugin_cf['feedview'];
-        $ptx = $plugin_tx['feedview'];
-        $feed = new SimplePie();
-        if ($pcf['cache_enabled']) {
-            $feed->set_cache_location(
+        if ($this->conf['cache_enabled']) {
+            $this->simplePie->set_cache_location(
                 $pth['folder']['plugins'] . 'feedview/cache/'
             );
         } else {
-            $feed->enable_cache(false);
+            $this->simplePie->enable_cache(false);
         }
-        $feed->set_feed_url($filename);
-        if (!$feed->init()) {
-            return XH_message('fail', $ptx['error_read_feed'], $filename);
+        $this->simplePie->set_feed_url($filename);
+        if (!$this->simplePie->init()) {
+            return $this->view->error("error_read_feed", $filename);
         }
-        $view = new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"]);
-        return $view->render($template, compact('feed', 'pcf', 'ptx'));
+        $view = $this->view;
+        return $view->render($template, [
+            "feed" => $this->simplePie,
+            "pcf" => $this->conf,
+            "ptx" => $this->text,
+        ]);
     }
 }
