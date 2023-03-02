@@ -2,3 +2,4 @@
 /composer.lock
 /tools
 /cache/*.spc
+/.phpunit.cache

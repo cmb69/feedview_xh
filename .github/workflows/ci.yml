@@ -36,3 +36,5 @@ jobs:
         run: cd cmsimplexh/plugins/feedview && PATH=tools:$PATH phing sniff
       - name: phing stan
         run: cd cmsimplexh/plugins/feedview && PATH=tools:$PATH phing stan
+      - name: phing test
+        run: cd cmsimplexh/plugins/feedview && PATH=tools:$PATH phing test
