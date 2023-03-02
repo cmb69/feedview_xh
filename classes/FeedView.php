@@ -22,6 +22,8 @@
 namespace Feedview;
 
 use Feedview\Infra\View;
+use Feedview\Value\Feed;
+use Feedview\Value\FeedItem;
 use SimplePie;
 
 class FeedView
@@ -72,9 +74,28 @@ class FeedView
         }
         $view = $this->view;
         return $view->render($template, [
-            "feed" => $this->simplePie,
-            "pcf" => $this->conf,
+            "feed" => $this->feed(),
             "ptx" => $this->text,
         ]);
+    }
+
+    /** @return Feed */
+    private function feed(): Feed
+    {
+        $items = [];
+        foreach ($this->simplePie->get_items(0, (int) $this->conf["default_items"]) as $item) {
+            $items[] = new FeedItem(
+                $item->get_title(),
+                $item->get_permalink(),
+                $item->get_description(),
+                $item->get_date($this->text["format_date"])
+            );
+        }
+        return new Feed(
+            $this->simplePie->get_title(),
+            $this->simplePie->get_permalink(),
+            $this->simplePie->get_description(),
+            $items
+        );
     }
 }
