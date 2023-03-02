@@ -108,7 +108,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Feedview_XH.  If not, see <https://www.gnu.org/licenses/>.
 
-Copyright 2014 Christoph M. Becker
+Copyright 2014-2023 Christoph M. Becker
 
 ## Credits
 

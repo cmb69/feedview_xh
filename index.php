@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2014 Christoph M. Becker
+ * Copyright 2014-2023 Christoph M. Becker
  *
  * This file is part of Feedview_XH.
  *
