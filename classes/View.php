@@ -23,86 +23,35 @@ namespace Feedview;
 
 class View
 {
-    /**
-     * @var string
-     */
-    protected $template;
+    /** @var string */
+    private $folder;
 
-    /**
-     * @var array<string,mixed>
-     */
-    protected $data;
+    /** @var array<string,string> */
+    private $text;
 
-    /**
-     * @param string $template
-     * @param array<string,mixed> $data
-     * @return View
-     */
-    public static function make($template, $data)
+    /** @param array<string,string> $text */
+    public function __construct(string $folder, array $text)
     {
-        return new self($template, $data);
+        $this->folder = $folder;
+        $this->text = $text;
     }
 
-    /**
-     * @param string $template
-     * @param array<string,mixed> $data
-     */
-    protected function __construct($template, $data)
+    /** @param array<string,mixed> $_data */
+    public function render(string $_template, array $_data): string
     {
-        global $pth, $cf;
-
-        $this->template = $pth['folder']['plugins'] . 'feedview/views/'
-            . $template . '.php';
-        $this->data = $data;
-    }
-
-    /**
-     * @return string
-     */
-    public function render()
-    {
-        global $cf;
-
-        if (!file_exists($this->template)) {
-            return $this->reportMissingTemplate();
+        $_filename = $this->folder . $_template . ".php";
+        if (!file_exists($_filename)) {
+            return $this->error("message_template_missing", $_filename);
         }
-        $html = $this->doRender();
-        if (!$cf['xhtml']['endtags']) {
-            $html = str_replace(' />', '>', $html);
-        }
-        return $html;
-    }
-
-    /**
-     * @return string
-     */
-    protected function reportMissingTemplate()
-    {
-        global $plugin_tx;
-
-        return XH_message(
-            'fail',
-            $plugin_tx['feedview']['message_template_missing'],
-            $this->template
-        );
-    }
-
-    /**
-     * @return string
-     */
-    protected function doRender()
-    {
-        extract($this->data);
+        extract($_data);
         ob_start();
-        include $this->template;
+        include $_filename;
         return (string) ob_get_clean();
     }
 
-    /**
-     * @return void
-     */
-    public function preventAccess()
+    /** @param array<scalar> $args */
+    public function error(string $key, ...$args): string
     {
-        // pass
+        return XH_message("fail", $this->text[$key], ...$args);
     }
 }

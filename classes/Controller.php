@@ -90,8 +90,8 @@ class Controller
         if (!$feed->init()) {
             return XH_message('fail', $ptx['error_read_feed'], $filename);
         }
-        return View::make($template, compact('feed', 'pcf', 'ptx'))
-            ->render();
+        $view = new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"]);
+        return $view->render($template, compact('feed', 'pcf', 'ptx'));
     }
 
     /**
@@ -112,11 +112,9 @@ class Controller
     {
         global $pth, $plugin_tx;
 
-        return tag(
-            'img src="' . $pth['folder']['plugins'] . 'feedview/feedview.png"'
+        return '<img src="' . $pth['folder']['plugins'] . 'feedview/feedview.png"'
             . ' class="feedview_icon" alt="' . $plugin_tx['feedview']['alt_icon']
-            . '"'
-        );
+            . '">';
     }
 
     /**

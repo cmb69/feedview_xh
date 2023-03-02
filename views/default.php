@@ -2,14 +2,14 @@
 
 use Feedview\View;
 
+if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
+
 /**
  * @var View $this
  * @var SimplePie $feed
  * @var array<string,string> $pcf
  * @var array<string,string> $ptx
  */
-
-$this->preventAccess();
 ?>
 <!-- Feedview_XH: default feed view -->
 <div class="feedview_header">
