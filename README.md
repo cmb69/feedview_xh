@@ -79,9 +79,12 @@ are stored in `feedview/views`, and work similar to CMSimple_XH templates
 to make a copy of `default.php` and experiment with it.
 
 To use a custom template, you have to give its name (without the trailing
-.php) as second parameter to `feedview()`, for example:
+`.php`) as second parameter to `feedview()`, for example on a page:
 
     {{{feedview('%FEED_URL%', 'my_template')}}}
+
+Or in the template:
+
     <?php echo feedview('%FEED_URL%, 'my_template');?>
 
 Inside the template, some variables are available; these are roughly documented

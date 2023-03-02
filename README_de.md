@@ -86,10 +86,13 @@ könnten Sie vielleicht eine Kopie von `default.php` erstellen, und mit ihr
 experimentieren.
 
 Um ein benutzerdefiniertes Template zu verwenden, müssen Sie seinen Namen
-(ohne das abschließende .php) als zweiten Parameter an `feedview()` übergeben. Zum
-Beispiel:
+(ohne das abschließende `.php`) als zweiten Parameter an `feedview()` übergeben.
+Zum Beispiel auf einer Seite:
 
     {{{feedview('%FEED_URL%', 'my_template')}}}
+
+Beziehungsweise im Template:
+
     <?php echo feedview('%FEED_URL%, 'my_template');?>
 
 Innerhalb des Templates sind einige Variablen verfügbar; diese sind zu Beginn
