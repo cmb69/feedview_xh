@@ -19,57 +19,16 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Feedview\Infra\View;
-use Feedview\FeedView;
-use Feedview\Infra\FeedReader;
+use Feedview\Dic;
 
-/*
- * Prevent direct access and usage from unsupported CMSimple_XH versions.
- */
-if (!defined('CMSIMPLE_XH_VERSION')
-    || strpos(CMSIMPLE_XH_VERSION, 'CMSimple_XH') !== 0
-    || version_compare(CMSIMPLE_XH_VERSION, 'CMSimple_XH 1.6', 'lt')
-) {
-    header('HTTP/1.1 403 Forbidden');
-    header('Content-Type: text/plain; charset=UTF-8');
-    die(<<<EOT
-Feedview_XH detected an unsupported CMSimple_XH version.
-Uninstall Feedview_XH or upgrade to a supported CMSimple_XH version!
-EOT
-    );
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    header("HTTP/1.1 403 Forbidden");
+    exit;
 }
 
-define('FEEDVIEW_VERSION', "1.0");
+const FEEDVIEW_VERSION = "1.0";
 
-/**
- * @param string $class
- * @return void
- */
-function Feedview_autoload($class)
+function feedview(string $filename, string $template = "default"): string
 {
-    global $pth;
-
-    if (!strncmp($class, "SimplePie", strlen("SimplePie"))) {
-        include_once $pth['folder']['plugins']
-            . 'feedview/simplepie/SimplePie.compiled.php';
-    }
+    return Dic::makeFeedView()($filename, $template);
 }
-
-/**
- * @param string $filename
- * @param string $template
- * @return string
- */
-function feedview($filename, $template = 'default')
-{
-    global $plugin_cf, $plugin_tx, $pth;
-    $handler = new FeedView(
-        $plugin_cf["feedview"],
-        $plugin_tx["feedview"],
-        new FeedReader,
-        new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"])
-    );
-    return $handler($filename, $template);
-}
-
-spl_autoload_register('Feedview_autoload');

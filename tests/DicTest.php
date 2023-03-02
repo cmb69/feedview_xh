@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2014-2023 Christoph M. Becker
+ * Copyright 2023 Christoph M. Becker
  *
  * This file is part of Feedview_XH.
  *
@@ -19,25 +19,23 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-if (!defined('CMSIMPLE_XH_VERSION')) {
-    header('HTTP/1.1 403 Forbidden');
-    exit;
-}
+namespace Feedview;
 
-/**
- * @var string $admin
- * @var string $o
- */
+use PHPUnit\Framework\TestCase;
 
-XH_registerStandardPluginMenuItems(false);
+class DicTest extends TestCase
+{
+    public function setUp(): void
+    {
+        global $pth, $plugin_cf, $plugin_tx;
 
-if (XH_wantsPluginAdministration("feedview")) {
-    $o .= print_plugin_admin("off");
-    switch ($admin) {
-        case "":
-            $o .= "<h1>Feedview – " . FEEDVIEW_VERSION . "</h1>";
-            break;
-        default:
-            $o .= plugin_admin_common();
+        $pth = ["folder" => ["plugins" => "../"]];
+        $plugin_cf = ["feedview" => []];
+        $plugin_tx = ["feedview" => []];
+    }
+
+    public function testMakesFeedView(): void
+    {
+        $this->assertInstanceOf(FeedView::class, Dic::makeFeedView());
     }
 }
