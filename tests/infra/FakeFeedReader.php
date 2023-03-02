@@ -42,6 +42,8 @@ class FakeSimplePie
 
     public function enable_cache($enable) {}
 
+    public function set_cache_duration() {}
+
     public function set_feed_url($url) {}
 
     public function init()

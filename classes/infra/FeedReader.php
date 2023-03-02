@@ -36,13 +36,14 @@ class FeedReader
         $this->simplePie = new SimplePie;
     }
 
-    public function init(string $url, ?string $cache): bool
+    public function init(string $url, ?string $cache, int $cacheDuration): bool
     {
         if ($cache !== null) {
             $this->simplePie->set_cache_location($cache);
         } else {
             $this->simplePie->enable_cache(false);
         }
+        $this->simplePie->set_cache_duration($cacheDuration);
         $this->simplePie->set_feed_url($url);
         return $this->simplePie->init();
     }

@@ -51,7 +51,7 @@ class FeedView
     public function __invoke(string $filename, string $template): string
     {
         $cache = $this->conf["cache_enabled"] ? $this->cacheFolder : null;
-        if (!$this->feedReader->init($filename, $cache)) {
+        if (!$this->feedReader->init($filename, $cache, (int) $this->conf["cache_duration"])) {
             return $this->view->error("error_read_feed", $filename);
         }
         $feed = $this->feedReader->read((int) $this->conf["default_items"]);
