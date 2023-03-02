@@ -1,5 +1,11 @@
 <?php
 
+const CMSIMPLE_XH_VERSION = "CMSimple_XH 1.7.5";
+
+require_once "../../cmsimple/functions.php";
+
+require_once "./vendor/autoload.php";
+
 spl_autoload_register(function (string $className) {
     $parts = explode("\\", $className);
     if ($parts[0] !== "Feedview") {
