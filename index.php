@@ -20,6 +20,7 @@
  */
 
 use Feedview\Controller;
+use Feedview\FeedView;
 
 /*
  * Prevent direct access and usage from unsupported CMSimple_XH versions.
@@ -66,12 +67,7 @@ function Feedview_autoload($class)
  */
 function feedview($filename, $template = 'default')
 {
-    global $_Feedview_controller;
-
-    return $_Feedview_controller->renderFeed($filename, $template);
+    return (new FeedView)($filename, $template);
 }
 
 spl_autoload_register('Feedview_autoload');
-
-$_Feedview_controller = new Controller();
-$_Feedview_controller->dispatch();
