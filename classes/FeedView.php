@@ -21,8 +21,9 @@
 
 namespace Feedview;
 
+use Feedview\Infra\FeedReader;
 use Feedview\Infra\View;
-use SimplePie;
+use Feedview\Value\Feed;
 
 class FeedView
 {
@@ -32,8 +33,8 @@ class FeedView
     /** @var array<string,string> */
     private $text;
 
-    /** @var SimplePie */
-    private $simplePie;
+    /** @var FeedReader */
+    private $feedReader;
 
     /** @var View */
     private $view;
@@ -42,11 +43,11 @@ class FeedView
      * @param array<string,string> $conf
      * @param array<string,string> $text
      */
-    public function __construct(array $conf, array $text, SimplePie $simplePie, View $view)
+    public function __construct(array $conf, array $text, FeedReader $feedReader, View $view)
     {
         $this->conf = $conf;
         $this->text = $text;
-        $this->simplePie = $simplePie;
+        $this->feedReader = $feedReader;
         $this->view = $view;
     }
 
@@ -59,36 +60,29 @@ class FeedView
     {
         global $pth;
 
-        if ($this->conf['cache_enabled']) {
-            $this->simplePie->set_cache_location(
-                $pth['folder']['plugins'] . 'feedview/cache/'
-            );
-        } else {
-            $this->simplePie->enable_cache(false);
-        }
-        $this->simplePie->set_feed_url($filename);
-        if (!$this->simplePie->init()) {
+        $cache = $this->conf['cache_enabled'] ? $pth['folder']['plugins'] . 'feedview/cache/' : null;
+        if (!$this->feedReader->init($filename, $cache)) {
             return $this->view->error("error_read_feed", $filename);
         }
-        $view = $this->view;
-        return $view->render($template, [
-            "title" => $this->simplePie->get_title(),
-            "permalink" => $this->simplePie->get_permalink(),
-            "description" => $this->simplePie->get_description(),
-            "items" => $this->itemRecords()
+        $feed = $this->feedReader->read((int) $this->conf["default_items"]);
+        return $this->view->render($template, [
+            "title" => $feed->title(),
+            "permalink" => $feed->permalink(),
+            "description" => $feed->description(),
+            "items" => $this->itemRecords($feed),
         ]);
     }
 
     /** @return list<array{title:string,permalink:string,description:string,date:string}> */
-    private function itemRecords(): array
+    private function itemRecords(Feed $feed): array
     {
         $items = [];
-        foreach ($this->simplePie->get_items(0, (int) $this->conf["default_items"]) as $item) {
+        foreach ($feed->items() as $item) {
             $items[] = [
-                "title" => $item->get_title(),
-                "permalink" => $item->get_permalink(),
-                "description" => $item->get_description(),
-                "date" => $item->get_date($this->text["format_date"]),
+                "title" => $item->title(),
+                "permalink" => $item->permalink(),
+                "description" => $item->description(),
+                "date" => date($this->text["format_date"], $item->timestamp()),
             ];
         }
         return $items;

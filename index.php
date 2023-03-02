@@ -19,8 +19,9 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- use Feedview\Infra\View;
- use Feedview\FeedView;
+use Feedview\Infra\View;
+use Feedview\FeedView;
+use Feedview\Infra\FeedReader;
 
 /*
  * Prevent direct access and usage from unsupported CMSimple_XH versions.
@@ -65,7 +66,7 @@ function feedview($filename, $template = 'default')
     $handler = new FeedView(
         $plugin_cf["feedview"],
         $plugin_tx["feedview"],
-        new SimplePie,
+        new FeedReader,
         new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"])
     );
     return $handler($filename, $template);
