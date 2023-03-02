@@ -61,11 +61,22 @@ To embed a feed on a CMSimple_XH page, write:
 
 To embed a feed in the template, write:
 
-    <?php echo feedview('%FEED_URL%')?>
+    <?=feedview('%FEED_URL%')?>
 
 `%FEED_URL%` is the URL of an arbitrary RSS or Atom news feed. For example:
 
     {{{feedview('http://3-magi.net/plugins/yanp/data/feed-en.xml')}}}
+
+To override the configured value of feed items to show (`Default` → `Items`),
+you can add a second argument to the plugin call. For instance, on a page:
+
+    {{{feedview('%FEED_URL%', 7)}}}
+
+or in the template:
+
+    <?=feedview(''%FEED_URL%', 7)?>
+
+will show at most seven feed items.
 
 You can embed an arbitrary amount of feeds on each page and/or the
 template.
@@ -85,7 +96,16 @@ To use a custom template, you have to give its name (without the trailing
 
 Or in the template:
 
-    <?php echo feedview('%FEED_URL%, 'my_template');?>
+    <?=feedview('%FEED_URL%, 'my_template')?>
+
+If you want to override the configured value of feed items to show,
+you can pass the number as second argument. For instance, on a page:
+
+    {{{feedview('%FEED_URL%', 7, 'my_template')}}}
+
+Or in the template:
+
+    <?=feedview('%FEED_URL%, 7, 'my_template')?>
 
 Inside the template, some variables are available; these are roughly documented
 at the start of the template.

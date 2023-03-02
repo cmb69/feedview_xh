@@ -42,6 +42,13 @@ class FeedViewTest extends TestCase
         $this->assertStringEqualsFile(__DIR__ . "/approvals/FeedViewTest.testRendersFeed.approved.html", $response);
     }
 
+    public function testReportsFailureToParseArguments(): void
+    {
+        $sut = $this->sut();
+        $response = $sut("irrelevant_url", 3);
+        Approvals::verifyHtml($response);
+    }
+
     public function testReportsFailureToReadFeed(): void
     {
         $sut = $this->sut(["reader" => ["init" => false]]);

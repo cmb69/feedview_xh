@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2014-2023 Christoph M. Becker
+ * Copyright 2023 Christoph M. Becker
  *
  * This file is part of Feedview_XH.
  *
@@ -19,17 +19,24 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Feedview\Dic;
+namespace Feedview\Logic;
 
-if (!defined("CMSIMPLE_XH_VERSION")) {
-    header("HTTP/1.1 403 Forbidden");
-    exit;
-}
-
-const FEEDVIEW_VERSION = "1.0";
-
-/** @param scalar $args */
-function feedview(string $filename, ...$args): string
+class Util
 {
-    return Dic::makeFeedView()($filename, ...$args);
+    /**
+     * @param array<scalar> $args
+     * @param array{int,string} $defaults
+     * @return array{int,string}|null
+     */
+    public static function parseArgs(array $args, array $defaults): ?array
+    {
+        if (count($args) === 0) {
+            return [$defaults[0], $defaults[1]];
+        } elseif (count($args) === 1 && is_string($args[0])) {
+            return [$defaults[0], $args[0]];
+        } elseif (count($args) === 2 && is_int($args[0]) && is_string($args[1])) {
+            return [$args[0], $args[1]];
+        }
+        return null;
+    }
 }

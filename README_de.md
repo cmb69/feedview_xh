@@ -65,12 +65,22 @@ Um einen Feed auf einer CMSimple_XH Seite einzubinden, schreiben Sie:
 
 Um einen Feed im Template einzubinden, schreiben Sie:
 
-    <?php echo feedview('%FEED_URL%')?>
+    <?=feedview('%FEED_URL%')?>
 
 `%FEED_URL%` ist die URL eines beliebigen RSS oder Atom News-Feeds. Zum
 Beispiel:
 
     {{{feedview('http://3-magi.net/plugins/yanp/data/feed-de.xml')}}}
+
+Soll die konfigurierte Anzahl von anzuzeigenden Feed-Artikeln (`Default` → `Items`)
+übersteuert werden, kann dem Pluginaufruf ein zweites Argument übergeben werden.
+Um, beispielsweise, höchstens sieben Feed-Artikel auf einer Seite anzuzeigen:
+
+    {{{feedview('%FEED_URL%', 7)}}}
+
+Oder im Template:
+
+    <?=feedview('%FEED_URL%', 7)?>
 
 Sie können beliebig viele Feeds auf jeder Seite und/oder dem Template
 einbinden.
@@ -93,7 +103,17 @@ Zum Beispiel auf einer Seite:
 
 Beziehungsweise im Template:
 
-    <?php echo feedview('%FEED_URL%, 'my_template');?>
+    <?=feedview('%FEED_URL%, 'my_template')?>
+
+Soll die konfigurierte Anzahl von Feed-Artikeln übersteuert werden,
+kann die Anzahl als zweites Argument übergeben werden.
+Beispielsweise auf einer Seite:
+
+    {{{feedview('%FEED_URL%', 7, 'my_template')}}}
+
+Oder im Template:
+
+    <?=feedview('%FEED_URL%, 7, 'my_template')?>
 
 Innerhalb des Templates sind einige Variablen verfügbar; diese sind zu Beginn
 des Templates grob dokumentiert.

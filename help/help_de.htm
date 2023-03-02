@@ -65,16 +65,24 @@
 <p>Um einen Feed auf einer CMSimple_XH Seite einzubinden, schreiben Sie:</p>
 <pre><code>{{{feedview(&#39;%FEED_URL%&#39;)}}}</code></pre>
 <p>Um einen Feed im Template einzubinden, schreiben Sie:</p>
-<pre><code>&lt;?php echo feedview(&#39;%FEED_URL%&#39;)?&gt;</code></pre>
+<pre><code>&lt;?=feedview(&#39;%FEED_URL%&#39;)?&gt;</code></pre>
 <p><code>%FEED_URL%</code> ist die URL eines beliebigen RSS oder Atom News-Feeds. Zum Beispiel:</p>
 <pre><code>{{{feedview(&#39;http://3-magi.net/plugins/yanp/data/feed-de.xml&#39;)}}}</code></pre>
+<p>Soll die konfigurierte Anzahl von anzuzeigenden Feed-Artikeln (<code>Default</code> → <code>Items</code>) übersteuert werden, kann dem Pluginaufruf ein zweites Argument übergeben werden. Um, beispielsweise, höchstens sieben Feed-Artikel auf einer Seite anzuzeigen:</p>
+<pre><code>{{{feedview(&#39;%FEED_URL%&#39;, 7)}}}</code></pre>
+<p>Oder im Template:</p>
+<pre><code>&lt;?=feedview(&#39;%FEED_URL%&#39;, 7)?&gt;</code></pre>
 <p>Sie können beliebig viele Feeds auf jeder Seite und/oder dem Template einbinden.</p>
 <h3 id="benutzerdefinierte-templates">Benutzerdefinierte Templates</h3>
 <p>Die Standard-Ansicht von Feedview_XH ist sehr einfach. Wenn Sie weitergehende Anforderungen und grundlegende Kenntnisse von PHP haben, dann können Sie sich Ihr eigenes Template erstellen. Diese Templates werden in <code>feeedview/views/</code> gespeichert und funktionieren ähnlich wie CMSimple_XH Templates (allerdings können Sie sie nicht im Administrationsbereich bearbeiten). Für den Anfang könnten Sie vielleicht eine Kopie von <code>default.php</code> erstellen, und mit ihr experimentieren.</p>
 <p>Um ein benutzerdefiniertes Template zu verwenden, müssen Sie seinen Namen (ohne das abschließende <code>.php</code>) als zweiten Parameter an <code>feedview()</code> übergeben. Zum Beispiel auf einer Seite:</p>
 <pre><code>{{{feedview(&#39;%FEED_URL%&#39;, &#39;my_template&#39;)}}}</code></pre>
 <p>Beziehungsweise im Template:</p>
-<pre><code>&lt;?php echo feedview(&#39;%FEED_URL%, &#39;my_template&#39;);?&gt;</code></pre>
+<pre><code>&lt;?=feedview(&#39;%FEED_URL%, &#39;my_template&#39;)?&gt;</code></pre>
+<p>Soll die konfigurierte Anzahl von Feed-Artikeln übersteuert werden, kann die Anzahl als zweites Argument übergeben werden. Beispielsweise auf einer Seite:</p>
+<pre><code>{{{feedview(&#39;%FEED_URL%&#39;, 7, &#39;my_template&#39;)}}}</code></pre>
+<p>Oder im Template:</p>
+<pre><code>&lt;?=feedview(&#39;%FEED_URL%, 7, &#39;my_template&#39;)?&gt;</code></pre>
 <p>Innerhalb des Templates sind einige Variablen verfügbar; diese sind zu Beginn des Templates grob dokumentiert.</p>
 <h2 id="fehlerbehebung">Fehlerbehebung</h2>
 <p>Melden Sie Programmfehler und stellen Sie Supportanfragen entweder auf <a href="https://github.com/cmb69/feedview_xh/issues">Github</a> oder im <a href="https://cmsimpleforum.com/">CMSimple_XH Forum</a>.</p>

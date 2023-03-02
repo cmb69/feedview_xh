@@ -66,16 +66,25 @@
 <p>To embed a feed on a CMSimple_XH page, write:</p>
 <pre><code>{{{feedview(&#39;%FEED_URL%&#39;)}}}</code></pre>
 <p>To embed a feed in the template, write:</p>
-<pre><code>&lt;?php echo feedview(&#39;%FEED_URL%&#39;)?&gt;</code></pre>
+<pre><code>&lt;?=feedview(&#39;%FEED_URL%&#39;)?&gt;</code></pre>
 <p><code>%FEED_URL%</code> is the URL of an arbitrary RSS or Atom news feed. For example:</p>
 <pre><code>{{{feedview(&#39;http://3-magi.net/plugins/yanp/data/feed-en.xml&#39;)}}}</code></pre>
+<p>To override the configured value of feed items to show (<code>Default</code> → <code>Items</code>), you can add a second argument to the plugin call. For instance, on a page:</p>
+<pre><code>{{{feedview(&#39;%FEED_URL%&#39;, 7)}}}</code></pre>
+<p>or in the template:</p>
+<pre><code>&lt;?=feedview(&#39;&#39;%FEED_URL%&#39;, 7)?&gt;</code></pre>
+<p>will show at most seven feed items.</p>
 <p>You can embed an arbitrary amount of feeds on each page and/or the template.</p>
 <h3 id="custom-templates">Custom Templates</h3>
 <p>The default view of Feedview_XH is very simple. If you have advanced needs and a basic knowledge of PHP, you can create your own template. These templates are stored in <code>feedview/views</code>, and work similar to CMSimple_XH templates (however, you cannot edit them in the administration). For a start you might want to make a copy of <code>default.php</code> and experiment with it.</p>
 <p>To use a custom template, you have to give its name (without the trailing <code>.php</code>) as second parameter to <code>feedview()</code>, for example on a page:</p>
 <pre><code>{{{feedview(&#39;%FEED_URL%&#39;, &#39;my_template&#39;)}}}</code></pre>
 <p>Or in the template:</p>
-<pre><code>&lt;?php echo feedview(&#39;%FEED_URL%, &#39;my_template&#39;);?&gt;</code></pre>
+<pre><code>&lt;?=feedview(&#39;%FEED_URL%, &#39;my_template&#39;)?&gt;</code></pre>
+<p>If you want to override the configured value of feed items to show, you can pass the number as second argument. For instance, on a page:</p>
+<pre><code>{{{feedview(&#39;%FEED_URL%&#39;, 7, &#39;my_template&#39;)}}}</code></pre>
+<p>Or in the template:</p>
+<pre><code>&lt;?=feedview(&#39;%FEED_URL%, 7, &#39;my_template&#39;)?&gt;</code></pre>
 <p>Inside the template, some variables are available; these are roughly documented at the start of the template.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Report bugs and ask for support either on <a href="https://github.com/cmb69/feedview_xh/issues">Github</a> or in the <a href="https://cmsimpleforum.com/">CMSimple_XH Forum</a>.</p>
