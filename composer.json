@@ -1,4 +1,5 @@
 {
     "require-dev": {
+        "approvals/approval-tests": "*@dev"
     }
 }

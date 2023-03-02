@@ -92,9 +92,8 @@ Beispiel:
     {{{feedview('%FEED_URL%', 'my_template')}}}
     <?php echo feedview('%FEED_URL%, 'my_template');?>
 
-Innerhalb des Templates sind einige Variablen verfügbar, wovon die wichtigste
-`$feed` ist, ein Exemplar von
-[SimplePie](https://dev.simplepie.org/api/class-SimplePie.html).
+Innerhalb des Templates sind einige Variablen verfügbar; diese sind zu Beginn
+des Templates grob dokumentiert.
 
 ## Fehlerbehebung
 

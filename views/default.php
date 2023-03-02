@@ -6,28 +6,29 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
 
 /**
  * @var View $this
- * @var SimplePie $feed
- * @var array<string,string> $pcf
- * @var array<string,string> $ptx
+ * @var string $title
+ * @var string $permalink
+ * @var string $description
+ * @var list<array{title:string,permalink:string,description:string,date:string}> $items
  */
 ?>
 <!-- Feedview_XH: default feed view -->
 <div class="feedview_header">
   <h4 class="feedview_feed_title">
-    <a href="<?=$feed->get_permalink()?>" target="_blank">
-      <?=$feed->get_title()?>
+    <a href="<?=$permalink?>" target="_blank">
+      <?=$title?>
     </a>
   </h4>
-  <div class="feedview_feed_description"><?=$feed->get_description()?></div>
+  <div class="feedview_feed_description"><?=$description?></div>
 </div>
-<?foreach ($feed->get_items(0, (int) $pcf['default_items']) as $item):?>
+<?foreach ($items as $item):?>
 <div class="feedview_item">
   <h5 class="feedview_item_title">
-    <a href="<?=$item->get_permalink();?>" target="_blank">
-      <?=$item->get_title()?>
+    <a href="<?=$item['permalink'];?>" target="_blank">
+      <?=$item['title']?>
     </a>
   </h5>
-  <div class="feedview_item_description"><?=$item->get_description()?></div>
-  <p class="feedview_item_posted"><?=sprintf($ptx['message_posted'], $item->get_date($ptx['format_date']))?></p>
+  <div class="feedview_item_description"><?=$item['description']?></div>
+  <p class="feedview_item_posted"><?=$this->text("message_posted", $item['date'])?></p>
 </div>
 <?endforeach?>

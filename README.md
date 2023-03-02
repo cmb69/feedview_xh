@@ -84,9 +84,8 @@ To use a custom template, you have to give its name (without the trailing
     {{{feedview('%FEED_URL%', 'my_template')}}}
     <?php echo feedview('%FEED_URL%, 'my_template');?>
 
-Inside the template, some variables are available, most notably `$feed` which
-is an instance of
-[SimplePie](https://dev.simplepie.org/api/class-SimplePie.html).
+Inside the template, some variables are available; these are roughly documented
+at the start of the template.
 
 ## Troubleshooting
 

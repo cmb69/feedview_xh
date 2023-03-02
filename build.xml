@@ -26,6 +26,19 @@
     </exec>
   </target>
 
+  <target name="test" description="runs all tests">
+    <exec executable="phpunit" passthru="true" checkreturn="true"/>
+  </target>
+
+  <target name="coverage" description="generates coverage report">
+    <exec executable="phpunit" passthru="true" checkreturn="true">
+      <arg value="--coverage-html"/>
+      <arg file="coverage"/>
+    </exec>
+  </target>
+
+  <target name="sat" description="runs all checks" depends="sniff,stan,test"/>
+
   <target name="gen-help" description="builds help.htm from README.md">
     <exec executable="pandoc" passthru="true" checkreturn="true">
       <arg line="-s --eol=lf --template=help/template.htm -Vlang=en -Vpagetitle=&quot;User Manual&quot; -o help/help.htm README.md -t html"/>
