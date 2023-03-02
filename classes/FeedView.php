@@ -21,6 +21,7 @@
 
 namespace Feedview;
 
+use Feedview\Infra\View;
 use SimplePie;
 
 class FeedView

@@ -19,7 +19,7 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Feedview;
+namespace Feedview\Infra;
 
 class View
 {

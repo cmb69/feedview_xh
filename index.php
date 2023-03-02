@@ -19,8 +19,8 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Feedview\FeedView;
-use Feedview\View;
+ use Feedview\Infra\View;
+ use Feedview\FeedView;
 
 /*
  * Prevent direct access and usage from unsupported CMSimple_XH versions.
