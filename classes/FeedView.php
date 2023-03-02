@@ -75,7 +75,6 @@ class FeedView
         $view = $this->view;
         return $view->render($template, [
             "feed" => $this->feed(),
-            "ptx" => $this->text,
         ]);
     }
 

@@ -8,7 +8,6 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
 /**
  * @var View $this
  * @var Feed $feed
- * @var array<string,string> $ptx
  */
 ?>
 <!-- Feedview_XH: default feed view -->
@@ -28,6 +27,6 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
     </a>
   </h5>
   <div class="feedview_item_description"><?=$item->description()?></div>
-  <p class="feedview_item_posted"><?=sprintf($ptx['message_posted'], $item->date())?></p>
+  <p class="feedview_item_posted"><?=$this->text("message_posted", $item->date())?></p>
 </div>
 <?endforeach?>

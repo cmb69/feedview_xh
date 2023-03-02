@@ -36,6 +36,12 @@ class View
         $this->text = $text;
     }
 
+    /** @param scalar $args */
+    public function text(string $key, ...$args): string
+    {
+        return sprintf($this->text[$key], ...$args);
+    }
+
     /** @param array<string,mixed> $_data */
     public function render(string $_template, array $_data): string
     {
