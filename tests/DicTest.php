@@ -31,7 +31,7 @@ class DicTest extends TestCase
 
         $pth = ["folder" => ["plugins" => "../"]];
         $plugin_cf = ["feedview" => []];
-        $plugin_tx = ["feedview" => []];
+        $plugin_tx = ["feedview" => ["format_date" => ""]];
     }
 
     public function testMakesFeedView(): void

@@ -27,11 +27,11 @@ use Feedview\Value\Feed;
 
 class FeedView
 {
-    /** @var array<string,string> */
-    private $conf;
+    /** @var string */
+    private $cacheFolder;
 
     /** @var array<string,string> */
-    private $text;
+    private $conf;
 
     /** @var FeedReader */
     private $feedReader;
@@ -39,28 +39,18 @@ class FeedView
     /** @var View */
     private $view;
 
-    /**
-     * @param array<string,string> $conf
-     * @param array<string,string> $text
-     */
-    public function __construct(array $conf, array $text, FeedReader $feedReader, View $view)
+    /** @param array<string,string> $conf */
+    public function __construct(string $cacheFolder, array $conf, FeedReader $feedReader, View $view)
     {
+        $this->cacheFolder = $cacheFolder;
         $this->conf = $conf;
-        $this->text = $text;
         $this->feedReader = $feedReader;
         $this->view = $view;
     }
 
-    /**
-     * @param string $filename
-     * @param string $template
-     * @return string
-     */
-    public function __invoke($filename, $template)
+    public function __invoke(string $filename, string $template): string
     {
-        global $pth;
-
-        $cache = $this->conf['cache_enabled'] ? $pth['folder']['plugins'] . 'feedview/cache/' : null;
+        $cache = $this->conf["cache_enabled"] ? $this->cacheFolder : null;
         if (!$this->feedReader->init($filename, $cache)) {
             return $this->view->error("error_read_feed", $filename);
         }
@@ -82,7 +72,7 @@ class FeedView
                 "title" => $item->title(),
                 "permalink" => $item->permalink(),
                 "description" => $item->description(),
-                "date" => date($this->text["format_date"], $item->timestamp()),
+                "date" => date($this->conf["format_date"], $item->timestamp()),
             ];
         }
         return $items;

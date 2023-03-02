@@ -29,14 +29,24 @@ class Dic
 {
     public static function makeFeedView(): FeedView
     {
-        global $plugin_cf, $plugin_tx, $pth;
+        global $plugin_tx, $pth;
 
         include_once $pth["folder"]["plugins"] . "feedview/simplepie/SimplePie.compiled.php";
         return new FeedView(
-            $plugin_cf["feedview"],
-            $plugin_tx["feedview"],
+            $pth["folder"]["plugins"] . "feedview/cache/",
+            self::makeConf(),
             new FeedReader,
             new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"])
         );
+    }
+
+    /** @return array<string,string> */
+    private static function makeConf(): array
+    {
+        global $plugin_cf, $plugin_tx;
+
+        $conf = $plugin_cf["feedview"];
+        $conf["format_date"] = $plugin_tx["feedview"]["format_date"];
+        return $conf;
     }
 }

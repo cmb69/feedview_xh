@@ -28,12 +28,6 @@ use PHPUnit\Framework\TestCase;
 
 class FeedViewTest extends TestCase
 {
-    public function setUp(): void
-    {
-        global $pth;
-        $pth = ["folder" => ["plugins" => ""]];
-    }
-
     public function testRendersFeed(): void
     {
         $sut = $this->sut();
@@ -66,8 +60,8 @@ class FeedViewTest extends TestCase
     {
         $text = XH_includeVar("./languages/en.php", "plugin_tx")["feedview"];
         return new FeedView(
+            "./cache/",
             $this->conf($options["conf"] ?? []),
-            $text,
             new FakeFeedReader($options["reader"] ?? []),
             new View("./views/", $text
         ));
@@ -75,6 +69,9 @@ class FeedViewTest extends TestCase
 
     private function conf($options = []): array
     {
-        return $options + XH_includeVar("./config/config.php", "plugin_cf")["feedview"];
+        $conf = XH_includeVar("./config/config.php", "plugin_cf")["feedview"];
+        $text = XH_includeVar("./languages/en.php", "plugin_tx")["feedview"];
+        $conf["format_date"] = $text["format_date"];
+        return $options + $conf;
     }
 }
