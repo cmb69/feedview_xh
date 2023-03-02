@@ -51,12 +51,6 @@ function Feedview_autoload($class)
     if ($class == 'SimplePie') {
         include_once $pth['folder']['plugins']
             . 'feedview/simplepie/simplepie_1.3.1.compiled.php';
-    } else {
-        $parts = explode('_', $class, 2);
-        if ($parts[0] == 'Feedview') {
-            include_once $pth['folder']['plugins'] . 'feedview/classes/'
-                . $parts[1] . '.php';
-        }
     }
 }
 

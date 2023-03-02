@@ -1,6 +1,6 @@
 <?php
 
-use Feedview\View;
+use Feedview\Infra\View;
 
 if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
 
