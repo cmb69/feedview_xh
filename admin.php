@@ -19,6 +19,8 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+use Feedview\Dic;
+
 if (!defined('CMSIMPLE_XH_VERSION')) {
     header('HTTP/1.1 403 Forbidden');
     exit;
@@ -35,7 +37,7 @@ if (XH_wantsPluginAdministration("feedview")) {
     $o .= print_plugin_admin("off");
     switch ($admin) {
         case "":
-            $o .= "<h1>Feedview – " . FEEDVIEW_VERSION . "</h1>";
+            $o .= Dic::makePluginInfo()()->fire();
             break;
         default:
             $o .= plugin_admin_common();

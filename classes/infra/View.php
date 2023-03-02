@@ -60,4 +60,10 @@ class View
     {
         return XH_message("fail", $this->text[$key], ...$args);
     }
+
+    /** @param scalar $value */
+    public function esc($value): string
+    {
+        return XH_hsc((string) $value);
+    }
 }

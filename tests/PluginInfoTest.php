@@ -21,26 +21,22 @@
 
 namespace Feedview;
 
+use ApprovalTests\Approvals;
+use Feedview\Infra\FakeSystemChecker;
+use Feedview\Infra\View;
 use PHPUnit\Framework\TestCase;
 
-class DicTest extends TestCase
+class PluginInfoTest extends TestCase
 {
-    public function setUp(): void
+    public function testRendersPluginInfo(): void
     {
-        global $pth, $plugin_cf, $plugin_tx;
-
-        $pth = ["folder" => ["plugins" => "../"]];
-        $plugin_cf = ["feedview" => []];
-        $plugin_tx = ["feedview" => ["format_date" => ""]];
-    }
-
-    public function testMakesFeedView(): void
-    {
-        $this->assertInstanceOf(FeedView::class, Dic::makeFeedView());
-    }
-
-    public function testMakesPluginInf(): void
-    {
-        $this->assertInstanceOf(PluginInfo::class, Dic::makePluginInfo());
+        $sut = new PluginInfo(
+            "./plugins/feedview/",
+            new FakeSystemChecker,
+            new View("./views/", XH_includeVar("./languages/en.php", "plugin_tx")["feedview"])
+        );
+        $response = $sut();
+        $this->assertEquals("Feedview 1.0", $response->title());
+        Approvals::verifyHtml($response->output());
     }
 }

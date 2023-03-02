@@ -61,7 +61,7 @@
         <exclude name="help/template.htm"/>
         <exclude name="build.xml"/>
         <exclude name="composer.*"/>
-        <exclude name="phpstan.neon"/>
+        <exclude name="phpstan.*"/>
         <exclude name="teplad.xml"/>
       </fileset>
     </move>

@@ -19,28 +19,25 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Feedview;
+namespace Feedview\Infra;
 
-use PHPUnit\Framework\TestCase;
-
-class DicTest extends TestCase
+class SystemChecker
 {
-    public function setUp(): void
+    /** @codeCoverageIgnore */
+    public function checkVersion(string $actual, string $minimum): bool
     {
-        global $pth, $plugin_cf, $plugin_tx;
-
-        $pth = ["folder" => ["plugins" => "../"]];
-        $plugin_cf = ["feedview" => []];
-        $plugin_tx = ["feedview" => ["format_date" => ""]];
+        return version_compare($actual, $minimum) >= 0;
     }
 
-    public function testMakesFeedView(): void
+    /** @codeCoverageIgnore */
+    public function checkExtension(string $extension): bool
     {
-        $this->assertInstanceOf(FeedView::class, Dic::makeFeedView());
+        return extension_loaded($extension);
     }
 
-    public function testMakesPluginInf(): void
+    /** @codeCoverageIgnore */
+    public function checkWritability(string $path): bool
     {
-        $this->assertInstanceOf(PluginInfo::class, Dic::makePluginInfo());
+        return is_writable($path);
     }
 }

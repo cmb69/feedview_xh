@@ -19,28 +19,47 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Feedview;
+namespace Feedview\Infra;
 
-use PHPUnit\Framework\TestCase;
-
-class DicTest extends TestCase
+class Response
 {
-    public function setUp(): void
+    public static function create(string $output): self
     {
-        global $pth, $plugin_cf, $plugin_tx;
-
-        $pth = ["folder" => ["plugins" => "../"]];
-        $plugin_cf = ["feedview" => []];
-        $plugin_tx = ["feedview" => ["format_date" => ""]];
+        $that = new self;
+        $that->output = $output;
+        return $that;
     }
 
-    public function testMakesFeedView(): void
+    /** @var string */
+    private $output;
+
+    /** @var string|null */
+    private $title = null;
+
+    public function withTitle(string $title): self
     {
-        $this->assertInstanceOf(FeedView::class, Dic::makeFeedView());
+        $that = clone $this;
+        $that->title = $title;
+        return $that;
     }
 
-    public function testMakesPluginInf(): void
+    public function output(): string
     {
-        $this->assertInstanceOf(PluginInfo::class, Dic::makePluginInfo());
+        return $this->output;
+    }
+
+    public function title(): ?string
+    {
+        return $this->title;
+    }
+
+    public function fire(): string
+    {
+        global $title;
+
+        if ($this->title !== null) {
+            $title = $this->title;
+        }
+        return $this->output;
     }
 }

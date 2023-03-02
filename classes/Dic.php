@@ -24,19 +24,31 @@ namespace Feedview;
 use Feedview\Infra\View;
 use Feedview\FeedView;
 use Feedview\Infra\FeedReader;
+use Feedview\Infra\SystemChecker;
 
 class Dic
 {
     public static function makeFeedView(): FeedView
     {
-        global $plugin_tx, $pth;
+        global $pth;
 
         include_once $pth["folder"]["plugins"] . "feedview/simplepie/SimplePie.compiled.php";
         return new FeedView(
             $pth["folder"]["plugins"] . "feedview/cache/",
             self::makeConf(),
             new FeedReader,
-            new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"])
+            self::makeView()
+        );
+    }
+
+    public static function makePluginInfo(): PluginInfo
+    {
+        global $pth;
+
+        return new PluginInfo(
+            $pth["folder"]["plugins"] . "feedview/",
+            new SystemChecker,
+            self::makeView()
         );
     }
 
@@ -48,5 +60,12 @@ class Dic
         $conf = $plugin_cf["feedview"];
         $conf["format_date"] = $plugin_tx["feedview"]["format_date"];
         return $conf;
+    }
+
+    private static function makeView(): View
+    {
+        global $pth, $plugin_tx;
+
+        return new View($pth["folder"]["plugins"] . "feedview/views/", $plugin_tx["feedview"]);
     }
 }

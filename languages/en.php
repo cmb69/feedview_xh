@@ -7,7 +7,14 @@ $plugin_tx['feedview']['message_template_missing']="The Feedview_XH template \"%
 
 $plugin_tx['feedview']['error_read_feed']="The feed \"%s\" can't be read!";
 
-$plugin_tx['feedview']['alt_icon']="RSS icon";
+$plugin_tx['feedview']['syscheck_extension']="PHP extension '%s' is loaded";
+$plugin_tx['feedview']['syscheck_fail']="failure";
+$plugin_tx['feedview']['syscheck_phpversion']="PHP version is at least %s";
+$plugin_tx['feedview']['syscheck_success']="okay";
+$plugin_tx['feedview']['syscheck_title']="System check";
+$plugin_tx['feedview']['syscheck_warning']="warning";
+$plugin_tx['feedview']['syscheck_writable']="'%s' is writable";
+$plugin_tx['feedview']['syscheck_xhversion']="CMSimple_XH version is at least %s";
 
 $plugin_tx['feedview']['cf_cache_enabled']="Shall the feeds be cached?";
 $plugin_tx['feedview']['cf_default_items']="The maximum number of feed items to display in the default view. Leave empty, to show all items.";
