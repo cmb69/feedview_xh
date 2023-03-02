@@ -70,7 +70,7 @@ Um einen Feed im Template einzubinden, schreiben Sie:
 `%FEED_URL%` ist die URL eines beliebigen RSS oder Atom News-Feeds. Zum
 Beispiel:
 
-    {{{feedview('http://3-magi.net/plugins/yanp/data/feed-de.xml')}}}
+    {{{feedview('https://cmsimpleforum.com/app.php/feed')}}}
 
 Soll die konfigurierte Anzahl von anzuzeigenden Feed-Artikeln (`Default` → `Items`)
 übersteuert werden, kann dem Pluginaufruf ein zweites Argument übergeben werden.
