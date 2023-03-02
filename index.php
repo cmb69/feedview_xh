@@ -49,9 +49,9 @@ function Feedview_autoload($class)
 {
     global $pth;
 
-    if ($class == 'SimplePie') {
+    if (!strncmp($class, "SimplePie", strlen("SimplePie"))) {
         include_once $pth['folder']['plugins']
-            . 'feedview/simplepie/simplepie_1.3.1.compiled.php';
+            . 'feedview/simplepie/SimplePie.compiled.php';
     }
 }
 

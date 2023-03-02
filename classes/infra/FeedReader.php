@@ -23,7 +23,7 @@ namespace Feedview\Infra;
 
 use Feedview\Value\Feed;
 use Feedview\Value\FeedItem;
-use SimplePie;
+use SimplePie\SimplePie;
 
 class FeedReader
 {
