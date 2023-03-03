@@ -37,7 +37,7 @@ class UtilTest extends TestCase
     {
         return [
             "none" => [[], [0, "feedview"]],
-            "int" => [[17], null],
+            "int" => [[17], [17, "feedview"]],
             "string" => [["custom"], [0, "custom"]],
             "int_string" => [[17, "custom"], [17, "custom"]],
             "string_string" => [["foo", "bar"], null],

@@ -32,6 +32,8 @@ class Util
     {
         if (count($args) === 0) {
             return [$defaults[0], $defaults[1]];
+        } elseif (count($args) === 1 && is_int($args[0])) {
+            return [$args[0], $defaults[1]];
         } elseif (count($args) === 1 && is_string($args[0])) {
             return [$defaults[0], $args[0]];
         } elseif (count($args) === 2 && is_int($args[0]) && is_string($args[1])) {

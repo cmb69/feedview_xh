@@ -62,7 +62,7 @@ class FeedViewTest extends TestCase
     public function testReportsFailureToParseArguments(): void
     {
         $sut = $this->sut();
-        $response = $sut("irrelevant_url", 3);
+        $response = $sut("irrelevant_url", "custom", 3);
         Approvals::verifyHtml($response);
     }
 
