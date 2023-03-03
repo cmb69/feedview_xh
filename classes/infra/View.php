@@ -39,7 +39,7 @@ class View
     /** @param scalar $args */
     public function text(string $key, ...$args): string
     {
-        return sprintf($this->text[$key], ...$args);
+        return XH_hsc(sprintf($this->text[$key], ...$args));
     }
 
     /** @param array<string,mixed> $_data */
@@ -65,5 +65,10 @@ class View
     public function esc($value): string
     {
         return XH_hsc((string) $value);
+    }
+
+    public function raw(string $string): string
+    {
+        return $string;
     }
 }
