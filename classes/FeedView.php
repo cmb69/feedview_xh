@@ -60,7 +60,7 @@ class FeedView
     {
         $args = Util::parseArgs($args, [(int) $this->conf["default_items"], "feedview"]);
         if ($args === null) {
-            return $this->view->error("message_unsupported_args");
+            return $this->view->error("error_unsupported_args");
         }
         [$count, $template] = $args;
         $cache = $this->conf["cache_enabled"] ? $this->cacheFolder : null;

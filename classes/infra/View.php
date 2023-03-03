@@ -47,7 +47,7 @@ class View
     {
         $_filename = $this->folder . $_template . ".php";
         if (!file_exists($_filename)) {
-            return $this->error("message_template_missing", $_filename);
+            return $this->error("error_template_missing", $_filename);
         }
         extract($_data);
         ob_start();
