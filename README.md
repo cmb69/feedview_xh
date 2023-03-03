@@ -87,7 +87,7 @@ The default view of Feedview_XH is very simple. If you have advanced needs
 and a basic knowledge of PHP, you can create your own template. These templates
 are stored in `feedview/views`, and work similar to CMSimple_XH templates
 (however, you cannot edit them in the administration). For a start you might want
-to make a copy of `default.php` and experiment with it.
+to make a copy of `feedview.php` and experiment with it.
 
 To use a custom template, you have to give its name (without the trailing
 `.php`) as second parameter to `feedview()`, for example on a page:

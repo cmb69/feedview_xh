@@ -31,28 +31,28 @@ class FeedViewTest extends TestCase
     public function testRendersFeed(): void
     {
         $sut = $this->sut();
-        $response = $sut("irrelevant_url", "default");
+        $response = $sut("irrelevant_url", "feedview");
         Approvals::verifyHtml($response);
     }
 
     public function testEnabledCacheStillRendersFeed(): void
     {
         $sut = $this->sut(["conf" => ["cache_enabled" => false]]);
-        $response = $sut("irrelevant_url", "default");
+        $response = $sut("irrelevant_url", "feedview");
         $this->assertStringEqualsFile(__DIR__ . "/approvals/FeedViewTest.testRendersFeed.approved.html", $response);
     }
 
     public function testRendersFeedWithOnlyOneItem(): void
     {
         $sut = $this->sut(["conf" => ["default_items" => 1]]);
-        $response = $sut("irrelevant_url", "default");
+        $response = $sut("irrelevant_url", "feedview");
         Approvals::verifyHtml($response);
     }
 
     public function testRendersFeedWithOnlyOneItemViaPluginCall(): void
     {
         $sut = $this->sut();
-        $response = $sut("irrelevant_url", 1, "default");
+        $response = $sut("irrelevant_url", 1, "feedview");
         $this->assertStringEqualsFile(
             __DIR__ . "/approvals/FeedViewTest.testRendersFeedWithOnlyOneItem.approved.html",
             $response
@@ -69,7 +69,7 @@ class FeedViewTest extends TestCase
     public function testReportsFailureToReadFeed(): void
     {
         $sut = $this->sut(["reader" => ["init" => false]]);
-        $response = $sut("irrelevant_url", "default");
+        $response = $sut("irrelevant_url", "feedview");
         Approvals::verifyHtml($response);
     }
 

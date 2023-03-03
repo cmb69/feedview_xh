@@ -92,7 +92,7 @@ Anforderungen und grundlegende Kenntnisse von PHP haben, dann können Sie sich
 Ihr eigenes Template erstellen. Diese Templates werden in `feeedview/views/`
 gespeichert und funktionieren ähnlich wie CMSimple_XH Templates (allerdings
 können Sie sie nicht im Administrationsbereich bearbeiten). Für den Anfang
-könnten Sie vielleicht eine Kopie von `default.php` erstellen, und mit ihr
+könnten Sie vielleicht eine Kopie von `feedview.php` erstellen, und mit ihr
 experimentieren.
 
 Um ein benutzerdefiniertes Template zu verwenden, müssen Sie seinen Namen

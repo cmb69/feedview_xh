@@ -28,7 +28,7 @@ class UtilTest extends TestCase
     /** @dataProvider parsesArgsData */
     public function testParsesArgs($args, $expected): void
     {
-        $defaults = [0, "default"];
+        $defaults = [0, "feedview"];
         $actual = Util::parseArgs($args, $defaults);
         $this->assertEquals($expected, $actual);
     }
@@ -36,7 +36,7 @@ class UtilTest extends TestCase
     public function parsesArgsData(): array
     {
         return [
-            "none" => [[], [0, "default"]],
+            "none" => [[], [0, "feedview"]],
             "int" => [[17], null],
             "string" => [["custom"], [0, "custom"]],
             "int_string" => [[17, "custom"], [17, "custom"]],

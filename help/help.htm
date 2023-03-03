@@ -76,7 +76,7 @@
 <p>will show at most seven feed items.</p>
 <p>You can embed an arbitrary amount of feeds on each page and/or the template.</p>
 <h3 id="custom-templates">Custom Templates</h3>
-<p>The default view of Feedview_XH is very simple. If you have advanced needs and a basic knowledge of PHP, you can create your own template. These templates are stored in <code>feedview/views</code>, and work similar to CMSimple_XH templates (however, you cannot edit them in the administration). For a start you might want to make a copy of <code>default.php</code> and experiment with it.</p>
+<p>The default view of Feedview_XH is very simple. If you have advanced needs and a basic knowledge of PHP, you can create your own template. These templates are stored in <code>feedview/views</code>, and work similar to CMSimple_XH templates (however, you cannot edit them in the administration). For a start you might want to make a copy of <code>feedview.php</code> and experiment with it.</p>
 <p>To use a custom template, you have to give its name (without the trailing <code>.php</code>) as second parameter to <code>feedview()</code>, for example on a page:</p>
 <pre><code>{{{feedview(&#39;%FEED_URL%&#39;, &#39;my_template&#39;)}}}</code></pre>
 <p>Or in the template:</p>

@@ -52,7 +52,7 @@ class FeedView
     /** @param scalar $args */
     public function __invoke(string $url, ...$args): string
     {
-        $args = Util::parseArgs($args, [(int) $this->conf["default_items"], "default"]);
+        $args = Util::parseArgs($args, [(int) $this->conf["default_items"], "feedview"]);
         if ($args === null) {
             return $this->view->error("message_unsupported_args");
         }
