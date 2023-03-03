@@ -45,11 +45,11 @@
   <!-- the name of the Plugin -->
   <name type="plugin">Feedview_XH</name>
   <!-- Date this xml-file was updated, yyyy.mm.dd -->
-  <date_update>2021.01.23</date_update>
+  <date_update>2023.03.03</date_update>
   <!-- version of Plugin -->
-  <version>1.0beta1</version>
+  <version>1.0</version>
   <!-- date of publication, yyyy.mm.dd -->
-  <date_version>2014.10.13</date_version>
+  <date_version>2023.03.03</date_version>
   <!-- the name of the programmer -->
   <coder>Christoph M. Becker</coder>
   <!-- Categories must be written in lower case. More than one possible, separated by comma without spaces. -->
@@ -62,19 +62,19 @@
   <url>
     <!-- URL where you can download the plugin -->
     <!-- If there no Download-URL, enter this follows! - <download_url></download_url> -->
-    <download_url>https://github.com/cmb69/feedview_xh/releases/1.0beta1</download_url>
+    <download_url>https://github.com/cmb69/feedview_xh/releases/1.0</download_url>
     <!-- URL of the programmer's website -->
     <!-- If there no Website, enter this follows! - <coder_url></coder_url> -->
-    <coder_url>https://3-magi.net</coder_url>
+    <coder_url>https://3-magi.net/</coder_url>
     <!-- URL where find a demo -->
     <!-- If there no Demo-Website, enter this follows! - <demo_url></demo_url> -->
     <demo_url></demo_url>
   </url>
   <!-- compatibility with versions of XH, i.e. 1.6, 1.6.7 - 1.7.2, ≥ 1.7, ... -->
-  <compatibility>≥ 1.6</compatibility>
+  <compatibility>≥ 1.7.0</compatibility>
   <!-- minimum version of PHP that is required, i.e. 5.3, 5.6, 7, ≥ 5.6, ... -->
   <!-- If there no specification, e.g. for templates, enter this follows! - <php_ver></php_ver> -->
-  <php_ver>≥ 5.2.0</php_ver>
+  <php_ver>≥ 7.2.0</php_ver>
   <!-- the License for the Plugin, GPLv3, AGPL, LGPL, GPLv2 ... -->
   <license>GPLv3</license>
   <!-- Description in English is mandatory -->
@@ -82,16 +82,17 @@
     <!-- description of the plugin, ca. 200 characters, you can use <br/>, <ol></ol>, <ul></ul>, <li></li>, <b></b>, <i></i>. -->
     <description lang="en">
       Feedview_XH facilitates to embed RSS and Atom feeds on your website.
-      Note that the reproduction of such feeds is not necessarily permitted;
-      check the provisions of the feed's publisher;
-      if in doubt, contact them for permission.
+      Note that the reproduction of such feeds is not necessarily permitted; check
+      the provisions of the publisher of the feed; if in doubt, contact them for
+      permission.
     </description>
     <!-- Beschreibung des Plugins, ca. 200 Zeichen, es können <br/>, <ol></ol>, <ul></ul>, <li></li>, <b></b>, <i></i> genutzt werden. -->
     <description lang="de">
-      Feedview_XH ermöglicht die Einbindung von RSS und Atom News-Feeds auf Ihrer Website.
-      Beachten Sie, dass die Wiedergabe solcher Feeds nich notwendiger Weise erlaubt ist;
-      prüfen Sie die Bestimmungen des Herausgebers des Feeds;
-      im Zweifelsfall fragen Sie um Erlaubnis.
+      Feedview_XH ermöglicht die Einbindung von RSS und Atom News-Feeds auf Ihrer
+      Website.
+      Beachten Sie, dass die Wiedergabe solcher Feeds nicht notwendigerweise
+      erlaubt ist; prüfen Sie die Bestimmungen des Herausgebers des Feeds; im
+      Zweifelsfall fragen Sie um Erlaubnis.
     </description>
     <!-- additional languages are possible, i.e. da, fr, pl, ... -->
     <!-- The use of this language is limited by the website where the repository is hosted. -->
