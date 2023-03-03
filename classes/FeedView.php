@@ -94,7 +94,7 @@ class FeedView
         return max((int) $start[(string) $this->serial], 0);
     }
 
-    /** @return list<array{title:string,permalink:string,description:string,date:string}> */
+    /** @return list<array{title:string|null,permalink:string|null,description:string|null,date:string|null}> */
     private function itemRecords(Feed $feed): array
     {
         $items = [];
@@ -103,7 +103,7 @@ class FeedView
                 "title" => $item->title(),
                 "permalink" => $item->permalink(),
                 "description" => $item->description(),
-                "date" => date($this->conf["format_date"], $item->timestamp()),
+                "date" => $item->timestamp() !== null ? date($this->conf["format_date"], $item->timestamp()) : null,
             ];
         }
         return $items;

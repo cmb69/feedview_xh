@@ -32,7 +32,7 @@ class Request
     public function url(): Url
     {
         $server = $this->server();
-        $query = preg_replace('/^[^=&]*(?=&|$)/', '', $server["QUERY_STRING"]);
+        $query = (string) preg_replace('/^[^=&]*(?=&|$)/', '', $server["QUERY_STRING"]);
         parse_str($query, $array);
         return new Url($this->su(), $array);
     }

@@ -24,11 +24,12 @@ namespace Feedview\Infra;
 use Feedview\Value\Feed;
 use Feedview\Value\FeedItem;
 use SimplePie\SimplePie;
+use SimplePie\Item as SimplePieItem;
 
 class FeedReader
 {
-    /** @var SimplePie|null */
-    protected $simplePie = null;
+    /** @var SimplePie */
+    protected $simplePie;
 
     /** @codeCoverageIgnore */
     public function __construct()
@@ -58,21 +59,32 @@ class FeedReader
 
     public function read(int $offset, int $length): Feed
     {
-        assert($this->simplePie !== null);
-        $items = [];
-        foreach ($this->simplePie->get_items($offset, $length) as $item) {
-            $items[] = new FeedItem(
-                $item->get_title(),
-                $item->get_permalink(),
-                $item->get_description(),
-                $item->get_date("U")
-            );
-        }
+        $items = $this->simplePie->get_items($offset, $length);
         return new Feed(
             $this->simplePie->get_title(),
             $this->simplePie->get_permalink(),
             $this->simplePie->get_description(),
-            $items
+            $items !== null ? $this->readItems($items) : [],
         );
+    }
+
+    /**
+     * @param list<SimplePieItem> $items
+     * @return list<FeedItem>
+     */
+    private function readItems(array $items): array
+    {
+        $result = [];
+        foreach ($items as $item) {
+            $timestamp = $item->get_date("U");
+            assert(!is_string($timestamp));
+            $result[] = new FeedItem(
+                $item->get_title(),
+                $item->get_permalink(),
+                $item->get_description(),
+                $timestamp
+            );
+        }
+        return $result;
     }
 }

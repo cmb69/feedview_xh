@@ -23,20 +23,20 @@ namespace Feedview\Value;
 
 class Feed
 {
-    /** @var string */
+    /** @var string|null */
     private $title;
 
-    /** @var string */
+    /** @var string|null */
     private $permalink;
 
-    /** @var string */
+    /** @var string|null */
     private $description;
 
     /** @var list<FeedItem> */
     private $items;
 
     /** @param list<FeedItem> $items */
-    public function __construct(string $title, string $permalink, string $description, array $items)
+    public function __construct(?string $title, ?string $permalink, ?string $description, array $items)
     {
         $this->title = $title;
         $this->permalink = $permalink;
@@ -44,17 +44,17 @@ class Feed
         $this->items = $items;
     }
 
-    public function title(): string
+    public function title(): ?string
     {
         return $this->title;
     }
 
-    public function permalink(): string
+    public function permalink(): ?string
     {
         return $this->permalink;
     }
 
-    public function description(): string
+    public function description(): ?string
     {
         return $this->description;
     }
