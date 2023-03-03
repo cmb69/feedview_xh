@@ -48,11 +48,19 @@ class FeedReader
         return $this->simplePie->init();
     }
 
-    public function read(int $itemCount): Feed
+    /** @return int<0,max> */
+    public function itemCount(): int
+    {
+        $count = $this->simplePie->get_item_quantity();
+        assert($count >= 0);
+        return $count;
+    }
+
+    public function read(int $offset, int $length): Feed
     {
         assert($this->simplePie !== null);
         $items = [];
-        foreach ($this->simplePie->get_items(0, $itemCount) as $item) {
+        foreach ($this->simplePie->get_items($offset, $length) as $item) {
             $items[] = new FeedItem(
                 $item->get_title(),
                 $item->get_permalink(),

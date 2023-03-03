@@ -1,10 +1,9 @@
-/*
- * Default view.
- */
+/* feedview */
 
 .feedview_header {}
 .feedview_feed_title {}
 .feedview_feed_description {}
+
 .feedview_item {}
 .feedview_item_title {}
 .feedview_item_description {}
@@ -12,4 +11,6 @@
     font-size: 85%;
 }
 
-
+.feedview_nav {}
+.feedview_prev {}
+.feedview_next {}

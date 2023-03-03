@@ -31,9 +31,11 @@ class Dic
     public static function makeFeedView(): FeedView
     {
         global $pth;
+        static $serial = 0;
 
         include_once $pth["folder"]["plugins"] . "feedview/simplepie/SimplePie.compiled.php";
         return new FeedView(
+            ++$serial,
             $pth["folder"]["plugins"] . "feedview/cache/",
             self::makeConf(),
             new FeedReader,

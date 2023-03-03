@@ -8,6 +8,9 @@ $plugin_tx['feedview']['message_template_missing']="Das Feedview_XH Template \"%
 
 $plugin_tx['feedview']['error_read_feed']="Der Feed \"%s\" kann nicht gelesen werden!";
 
+$plugin_tx['feedview']['label_next']="ältere Artikel";
+$plugin_tx['feedview']['label_prev']="neuere Artikel";
+
 $plugin_tx['feedview']['syscheck_extension']="PHP-Extension '%s' ist geladen";
 $plugin_tx['feedview']['syscheck_fail']="Fehlschlag";
 $plugin_tx['feedview']['syscheck_phpversion']="PHP-Version ist mindestens %s";

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2014-2023 Christoph M. Becker
+ * Copyright 2023 Christoph M. Becker
  *
  * This file is part of Feedview_XH.
  *
@@ -19,18 +19,29 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Feedview\Dic;
-use Feedview\Infra\Request;
+namespace Feedview\Infra;
 
-if (!defined("CMSIMPLE_XH_VERSION")) {
-    header("HTTP/1.1 403 Forbidden");
-    exit;
-}
-
-const FEEDVIEW_VERSION = "1.0";
-
-/** @param scalar $args */
-function feedview(string $filename, ...$args): string
+class FakeRequest extends Request
 {
-    return Dic::makeFeedView()(Request::current(), $filename, ...$args);
+    private $options;
+
+    public function __construct(array $options = [])
+    {
+        $this->options = $options;
+    }
+
+    public function url(): Url
+    {
+        return $this->options["url"] ?? parent::url();
+    }
+
+    protected function su(): string
+    {
+        return $this->options["su"] ?? "";
+    }
+
+    protected function server(): array
+    {
+        return $this->options["server"] ?? [];
+    }
 }

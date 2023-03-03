@@ -22,12 +22,17 @@
 namespace Feedview;
 
 use Feedview\Infra\FeedReader;
+use Feedview\Infra\Request;
+use Feedview\Infra\Url;
 use Feedview\Infra\View;
 use Feedview\Logic\Util;
 use Feedview\Value\Feed;
 
 class FeedView
 {
+    /** @var int */
+    private $serial;
+
     /** @var string */
     private $cacheFolder;
 
@@ -41,8 +46,9 @@ class FeedView
     private $view;
 
     /** @param array<string,string> $conf */
-    public function __construct(string $cacheFolder, array $conf, FeedReader $feedReader, View $view)
+    public function __construct(int $serial, string $cacheFolder, array $conf, FeedReader $feedReader, View $view)
     {
+        $this->serial = $serial;
         $this->cacheFolder = $cacheFolder;
         $this->conf = $conf;
         $this->feedReader = $feedReader;
@@ -50,7 +56,7 @@ class FeedView
     }
 
     /** @param scalar $args */
-    public function __invoke(string $url, ...$args): string
+    public function __invoke(Request $request, string $url, ...$args): string
     {
         $args = Util::parseArgs($args, [(int) $this->conf["default_items"], "feedview"]);
         if ($args === null) {
@@ -61,13 +67,31 @@ class FeedView
         if (!$this->feedReader->init($url, $cache, (int) $this->conf["cache_duration"])) {
             return $this->view->error("error_read_feed", $url);
         }
-        $feed = $this->feedReader->read($count);
+        $offset = $this->offset($request->url());
+        [$prevOffset, $nextOffset] = Util::offsets($offset, $count, $this->feedReader->itemCount());
+        $url = $request->url();
+        $feed = $this->feedReader->read($offset, $count);
         return $this->view->render($template, [
             "title" => $feed->title(),
             "permalink" => $feed->permalink(),
             "description" => $feed->description(),
             "items" => $this->itemRecords($feed),
+            "prev_url" => $prevOffset !==  null ? $url->withOffset($this->serial, $prevOffset)->relative() : null,
+            "next_url" => $nextOffset !== null ? $url->withOffset($this->serial, $nextOffset)->relative() : null,
         ]);
+    }
+
+    /** @return int<0,max> */
+    private function offset(Url $url): int
+    {
+        $start = $url->param("feedview_start");
+        if ($start === null || !is_array($start)) {
+            return 0;
+        }
+        if (!isset($start[(string) $this->serial])) {
+            return 0;
+        }
+        return max((int) $start[(string) $this->serial], 0);
     }
 
     /** @return list<array{title:string,permalink:string,description:string,date:string}> */

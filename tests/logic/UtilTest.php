@@ -42,6 +42,23 @@ class UtilTest extends TestCase
             "int_string" => [[17, "custom"], [17, "custom"]],
             "string_string" => [["foo", "bar"], null],
             "three" => [[3, "custom", "extra"], null],
+            "negative int" => [[-1], [0, "feedview"]],
+        ];
+    }
+
+    /** @dataProvider offsetsData */
+    public function testOffsets(int $offset, int $count, int $total, array $expected): void
+    {
+        $this->assertSame($expected, Util::offsets($offset, $count, $total));
+    }
+
+    public function offsetsData(): array
+    {
+        return [
+            [0, 4, 8, [null, 4]],
+            [4, 0, 8, [0, null]],
+            [4, 2, 8, [2, 6]],
+            [4, 4, 8, [0, null]],
         ];
     }
 }

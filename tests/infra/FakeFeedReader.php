@@ -66,9 +66,19 @@ class FakeSimplePie
         return "The most recent news are available only here.";
     }
 
+    public function get_item_quantity()
+    {
+        return count($this->items());
+    }
+
     public function get_items($start, $end)
     {
-        $items = [
+        return array_slice($this->items(), $start, $end ?: PHP_INT_MAX);
+    }
+
+    private function items(): array
+    {
+        return[
             new FakeSimplePieItem(
                 "More Breaking News",
                 "http://example.com/feed/more-breaking-news",
@@ -82,7 +92,6 @@ class FakeSimplePie
                 1677761028
             ),
         ];
-        return array_slice($items, $start, $end ?: PHP_INT_MAX);
     }
 }
 

@@ -10,6 +10,8 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
  * @var html $permalink
  * @var html $description
  * @var list<array{title:html,permalink:html,description:html,date:string}> $items
+ * @var string|null $prev_url
+ * @var string|null $next_url
  */
 ?>
 <!-- feedview -->
@@ -28,3 +30,11 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
   <p class="feedview_item_posted"><?=$this->text("message_posted", $item['date'])?></p>
 </div>
 <?endforeach?>
+<div class="feedview_nav">
+<?if (isset($prev_url)):?>
+  <a class="feedview_prev" href="<?=$this->esc($prev_url)?>"><?=$this->text('label_prev')?></a>
+<?endif?>
+<?if (isset($next_url)):?>
+  <a class="feedview_next" href="<?=$this->esc($next_url)?>"><?=$this->text('label_next')?></a>
+<?endif?>
+</div>

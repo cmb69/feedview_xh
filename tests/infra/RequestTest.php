@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2014-2023 Christoph M. Becker
+ * Copyright 2023 Christoph M. Becker
  *
  * This file is part of Feedview_XH.
  *
@@ -19,18 +19,25 @@
  * along with Feedview_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Feedview\Dic;
-use Feedview\Infra\Request;
+namespace Feedview\Infra;
 
-if (!defined("CMSIMPLE_XH_VERSION")) {
-    header("HTTP/1.1 403 Forbidden");
-    exit;
-}
+use PHPUnit\Framework\TestCase;
 
-const FEEDVIEW_VERSION = "1.0";
-
-/** @param scalar $args */
-function feedview(string $filename, ...$args): string
+class RequestTest extends TestCase
 {
-    return Dic::makeFeedView()(Request::current(), $filename, ...$args);
+    /** @dataProvider urlData */
+    public function testUrl(?string $query, Url $expected): void
+    {
+        $sut = new FakeRequest(["su" => "FeedView", "server" => ["QUERY_STRING" => $query]]);
+        $url = $sut->url();
+        $this->assertEquals($expected, $url);
+    }
+
+    public function urlData(): array
+    {
+        return [
+            "su" => ["FeedView", new Url("FeedView", [])],
+            "su+params" => ["Feeview&foo=bar", new Url("FeedView", ["foo" => "bar"])],
+        ];
+    }
 }

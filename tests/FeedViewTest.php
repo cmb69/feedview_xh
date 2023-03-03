@@ -23,6 +23,8 @@ namespace Feedview;
 
 use ApprovalTests\Approvals;
 use Feedview\Infra\FakeFeedReader;
+use Feedview\Infra\FakeRequest;
+use Feedview\Infra\Url;
 use Feedview\Infra\View;
 use PHPUnit\Framework\TestCase;
 
@@ -31,28 +33,50 @@ class FeedViewTest extends TestCase
     public function testRendersFeed(): void
     {
         $sut = $this->sut();
-        $response = $sut("irrelevant_url", "feedview");
+        $request = new FakeRequest(["url" => new Url("", [])]);
+        $response = $sut($request, "irrelevant_url", "feedview");
         Approvals::verifyHtml($response);
+    }
+
+    public function testRendersFeedWithSuppliedOffset(): void
+    {
+        $sut = $this->sut();
+        $request = new FakeRequest(["url" => new Url("", ["feedview_start" => ["1" => "1"]])]);
+        $response = $sut($request, "irrelevant_url");
+        Approvals::verifyHtml($response);
+    }
+
+    public function testRendersTwoFeedsWithSuppliedOffsets(): void
+    {
+        $sut1 = $this->sut(["serial" => 1]);
+        $sut2 = $this->sut(["serial" => 2]);
+        $request = new FakeRequest(["url" => new Url("", ["feedview_start" => ["2" => "1"]])]);
+        $response1 = $sut1($request, "irrelevant_url");
+        $response2 = $sut2($request, "irrelevant_url");
+        Approvals::verifyHtml($response1 . $response2);
     }
 
     public function testEnabledCacheStillRendersFeed(): void
     {
         $sut = $this->sut(["conf" => ["cache_enabled" => false]]);
-        $response = $sut("irrelevant_url", "feedview");
+        $request = new FakeRequest(["url" => new Url("", [])]);
+        $response = $sut($request, "irrelevant_url", "feedview");
         $this->assertStringEqualsFile(__DIR__ . "/approvals/FeedViewTest.testRendersFeed.approved.html", $response);
     }
 
     public function testRendersFeedWithOnlyOneItem(): void
     {
         $sut = $this->sut(["conf" => ["default_items" => 1]]);
-        $response = $sut("irrelevant_url", "feedview");
+        $request = new FakeRequest(["url" => new Url("", [])]);
+        $response = $sut($request, "irrelevant_url", "feedview");
         Approvals::verifyHtml($response);
     }
 
     public function testRendersFeedWithOnlyOneItemViaPluginCall(): void
     {
         $sut = $this->sut();
-        $response = $sut("irrelevant_url", 1, "feedview");
+        $request = new FakeRequest(["url" => new Url("", [])]);
+        $response = $sut($request, "irrelevant_url", 1, "feedview");
         $this->assertStringEqualsFile(
             __DIR__ . "/approvals/FeedViewTest.testRendersFeedWithOnlyOneItem.approved.html",
             $response
@@ -62,21 +86,24 @@ class FeedViewTest extends TestCase
     public function testReportsFailureToParseArguments(): void
     {
         $sut = $this->sut();
-        $response = $sut("irrelevant_url", "custom", 3);
+        $request = new FakeRequest;
+        $response = $sut($request, "irrelevant_url", "custom", 3);
         Approvals::verifyHtml($response);
     }
 
     public function testReportsFailureToReadFeed(): void
     {
         $sut = $this->sut(["reader" => ["init" => false]]);
-        $response = $sut("irrelevant_url", "feedview");
+        $request = new FakeRequest;
+        $response = $sut($request, "irrelevant_url", "feedview");
         Approvals::verifyHtml($response);
     }
 
     public function testReportsMissingCustomTemplate(): void
     {
         $sut = $this->sut();
-        $response = $sut("irrelevant_url", "does_not_exist");
+        $request = new FakeRequest(["url" => new Url("", [])]);
+        $response = $sut($request, "irrelevant_url", "does_not_exist");
         Approvals::verifyHtml($response);
     }
 
@@ -84,6 +111,7 @@ class FeedViewTest extends TestCase
     {
         $text = XH_includeVar("./languages/en.php", "plugin_tx")["feedview"];
         return new FeedView(
+            $options["serial"] ?? 1,
             "./cache/",
             $this->conf($options["conf"] ?? []),
             new FakeFeedReader($options["reader"] ?? []),
