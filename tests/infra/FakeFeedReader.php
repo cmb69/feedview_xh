@@ -68,7 +68,13 @@ class FakeSimplePie
 
     public function get_items($start, $end)
     {
-        return [
+        $items = [
+            new FakeSimplePieItem(
+                "More Breaking News",
+                "http://example.com/feed/more-breaking-news",
+                "Something even more awesome happened just now!",
+                1677797561
+            ),
             new FakeSimplePieItem(
                 "Breaking News",
                 "http://example.com/feed/breaking-news",
@@ -76,6 +82,7 @@ class FakeSimplePie
                 1677761028
             ),
         ];
+        return array_slice($items, $start, $end ?: PHP_INT_MAX);
     }
 }
 

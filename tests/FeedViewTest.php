@@ -42,6 +42,23 @@ class FeedViewTest extends TestCase
         $this->assertStringEqualsFile(__DIR__ . "/approvals/FeedViewTest.testRendersFeed.approved.html", $response);
     }
 
+    public function testRendersFeedWithOnlyOneItem(): void
+    {
+        $sut = $this->sut(["conf" => ["default_items" => 1]]);
+        $response = $sut("irrelevant_url", "default");
+        Approvals::verifyHtml($response);
+    }
+
+    public function testRendersFeedWithOnlyOneItemViaPluginCall(): void
+    {
+        $sut = $this->sut();
+        $response = $sut("irrelevant_url", 1, "default");
+        $this->assertStringEqualsFile(
+            __DIR__ . "/approvals/FeedViewTest.testRendersFeedWithOnlyOneItem.approved.html",
+            $response
+        );
+    }
+
     public function testReportsFailureToParseArguments(): void
     {
         $sut = $this->sut();
