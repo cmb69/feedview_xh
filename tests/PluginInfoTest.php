@@ -36,7 +36,7 @@ class PluginInfoTest extends TestCase
             new View("./views/", XH_includeVar("./languages/en.php", "plugin_tx")["feedview"])
         );
         $response = $sut();
-        $this->assertEquals("Feedview 1.1-dev", $response->title());
+        $this->assertEquals("Feedview 1.1", $response->title());
         Approvals::verifyHtml($response->output());
     }
 }
