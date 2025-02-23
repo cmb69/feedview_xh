@@ -27,7 +27,7 @@ if (!defined("CMSIMPLE_XH_VERSION")) {
     exit;
 }
 
-const FEEDVIEW_VERSION = "1.2";
+const FEEDVIEW_VERSION = "1.3-dev";
 
 /** @param scalar $args */
 function feedview(string $filename, ...$args): string
