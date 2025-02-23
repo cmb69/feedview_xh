@@ -33,8 +33,26 @@ class Request
     {
         $server = $this->server();
         $query = (string) preg_replace('/^[^=&]*(?=&|$)/', '', $server["QUERY_STRING"]);
-        parse_str($query, $array);
-        return new Url($this->su(), $array);
+        return new Url($this->su(), $this->parseQuery($query));
+    }
+
+    /** @return array<string,string|array<string>> */
+    private function parseQuery(string $query): array
+    {
+        parse_str($query, $result);
+        $this->assertStringKeys($result);
+        return $result;
+    }
+
+    /**
+     * @param array<int|string,array<mixed>|string> $array
+     * @phpstan-assert array<string,string|array<string>> $array
+     */
+    private function assertStringKeys(array $array): void
+    {
+        foreach ($array as $key => $value) {
+            assert(is_string($key));
+        }
     }
 
     /** @codeCoverageIgnore */
