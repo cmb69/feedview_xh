@@ -80,13 +80,13 @@
     <delete dir="export"/>
     <copy file="dist/config/config.php" tofile="dist/config/defaultconfig.php"/>
     <copy file="dist/languages/en.php" tofile="dist/languages/default.php"/>
-    <zip destfile="Feedview_XH-1.2-dev.zip" basedir="dist" prefix="feedview/"/>
+    <zip destfile="Feedview_XH-1.2.zip" basedir="dist" prefix="feedview/"/>
     <delete dir="dist"/>
   </target>
 
   <target name="build-patch" description="builds a distributable update package">
     <fail unless="patchee" message="patchee is not defined!"/>
-    <unzip file="Feedview_XH-1.2-dev.zip" todir="current"/>
+    <unzip file="Feedview_XH-1.2.zip" todir="current"/>
     <unzip file="${patchee}" todir="patchee"/>
     <copy todir="dist">
       <fileset dir="current">
@@ -100,7 +100,7 @@
         <include name="css/stylesheet.css"/>
       </fileset>
     </delete>
-    <zip destfile="Feedview_XH-1.2-dev-PATCH.zip" basedir="dist" includeemptydirs="false"/>
+    <zip destfile="Feedview_XH-1.2-PATCH.zip" basedir="dist" includeemptydirs="false"/>
     <delete dir="patchee" quiet="true"/>
     <delete dir="current" quiet="true"/>
     <delete dir="dist" quiet="true"/>

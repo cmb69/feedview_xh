@@ -45,11 +45,11 @@
   <!-- the name of the Plugin -->
   <name type="plugin">Feedview_XH</name>
   <!-- Date this xml-file was updated, yyyy.mm.dd -->
-  <date_update>2023.03.05</date_update>
+  <date_update>2025.02.23</date_update>
   <!-- version of Plugin -->
-  <version>1.1</version>
+  <version>1.2</version>
   <!-- date of publication, yyyy.mm.dd -->
-  <date_version>2023.03.05</date_version>
+  <date_version>2025.02.23</date_version>
   <!-- the name of the programmer -->
   <coder>Christoph M. Becker</coder>
   <!-- Categories must be written in lower case. More than one possible, separated by comma without spaces. -->
