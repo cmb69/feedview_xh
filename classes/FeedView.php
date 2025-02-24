@@ -71,6 +71,7 @@ class FeedView
         [$prevOffset, $nextOffset] = Util::offsets($offset, $count, $this->feedReader->itemCount());
         $url = $request->url();
         $feed = $this->feedReader->read($offset, $count);
+        $headingLevel = $this->conf["heading_level"];
         return $this->view->render($template, [
             "title" => $feed->title(),
             "permalink" => $feed->permalink(),
@@ -78,6 +79,8 @@ class FeedView
             "items" => $this->itemRecords($feed),
             "prev_url" => $prevOffset !==  null ? $url->withOffset($this->serial, $prevOffset)->relative() : null,
             "next_url" => $nextOffset !== null ? $url->withOffset($this->serial, $nextOffset)->relative() : null,
+            "h_feed" => $headingLevel,
+            "h_item" => ++$headingLevel,
         ]);
     }
 

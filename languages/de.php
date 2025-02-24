@@ -23,5 +23,6 @@ $plugin_tx['feedview']['syscheck_xhversion']="CMSimple_XH-Version ist mindestens
 $plugin_tx['feedview']['cf_cache_enabled']="Sollen die Feeds zwischengespeichert werden?";
 $plugin_tx['feedview']['cf_cache_duration']="Die Zeit in Sekunden für die Feeds zwischengespeichert werden. Danach werden die Feeds bei Bedarf neu gelesen.";
 $plugin_tx['feedview']['cf_default_items']="Die maximale Anzahl von Feed-Items, die in der Default-Ansicht angezeigt werden. Leer lassen, um alle Items anzuzeigen.";
+$plugin_tx['feedview']['cf_heading_level']="HTML-Element, mit dem Feed-Überschriften ausgezeichnet werden.";
 
 ?>

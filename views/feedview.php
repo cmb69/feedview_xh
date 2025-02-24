@@ -12,11 +12,13 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
  * @var list<array{title:string|null,permalink:string|null,description:string|null,date:string|null}> $items
  * @var string|null $prev_url
  * @var string|null $next_url
+ * @var string $h_feed
+ * @var string $h_item
  */
 ?>
 <!-- feedview -->
 <div class="feedview_header">
-  <h4 class="feedview_feed_title">
+  <<?=$h_feed?> class="feedview_feed_title">
 <?if (isset($permalink)):?>
     <a href="<?=$this->raw($permalink)?>" target="_blank">
 <?endif?>
@@ -26,14 +28,14 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
 <?if (isset($permalink)):?>
     </a>
 <?endif?>
-  </h4>
+  </<?=$h_feed?>>
 <?if (isset($description)):?>
   <div class="feedview_feed_description"><?=$this->raw($description)?></div>
 <?endif?>
 </div>
 <?foreach ($items as $item):?>
 <div class="feedview_item">
-  <h5 class="feedview_item_title">
+  <<?=$h_item?> class="feedview_item_title">
 <?if (isset($item['permalink'])):?>
     <a href="<?=$this->raw($item['permalink'])?>" target="_blank">
 <?endif?>
@@ -43,7 +45,7 @@ if (!defined("CMSIMPLE_XH_VERSION")) {header("HTTP/1.1 403 Forbidden"); exit;}
 <?if (isset($item['permalink'])):?>
     </a>
 <?endif?>
-  </h5>
+  </<?=$h_item?>>
 <?if (isset($item['description'])):?>
   <div class="feedview_item_description"><?=$this->raw($item['description'])?></div>
 <?endif?>

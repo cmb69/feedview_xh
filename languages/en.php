@@ -23,5 +23,6 @@ $plugin_tx['feedview']['syscheck_xhversion']="CMSimple_XH version is at least %s
 $plugin_tx['feedview']['cf_cache_enabled']="Shall the feeds be cached?";
 $plugin_tx['feedview']['cf_cache_duration']="The time in seconds for the feeds to be cached. After that, the feeds will be reread if necessary.";
 $plugin_tx['feedview']['cf_default_items']="The maximum number of feed items to display in the default view. Leave empty, to show all items.";
+$plugin_tx['feedview']['cf_heading_level']="HTML element to mark up feed headings.";
 
 ?>
